@@ -10,21 +10,12 @@ SKILLS.md
 AGENTS.md
 AGENT-START-HERE.md
 pre-lite-workspace/README.md
-pre-lite-workspace/START-HERE.md
 pre-lite-workspace/materials/day-minus-1-preflight-checklist.md
 pre-lite-workspace/prompts/preflight-agent-prompt.md
-pre-lite-workspace/prompts/github-primer-prompt.md
 pre-lite-workspace/prompts/workspace-setup-prompt.md
 pre-lite-workspace/templates/preflight-reply-template.md
 course-workspace/README.md
 course-workspace/AGENT-START-HERE.md
-course-workspace/PROJECTS.md
-course-workspace/CURRENT.md
-course-workspace/TASKS.md
-course-workspace/DECISIONS.md
-course-workspace/SOURCES.md
-course-workspace/LOG-2026-07.md
-course-workspace/artifacts/README.md
 course-workspace/units/README.md
 course-workspace/units/00-workspace-entry/STUDENT.md
 course-workspace/units/00-workspace-entry/AGENT-TASK.md
@@ -49,7 +40,6 @@ course-workspace/units/03-llm-wiki-skill-lab/materials/SKILL-CATALOG.md
 course-workspace/units/03-llm-wiki-skill-lab/materials/IMPORT-AND-SAVE.md
 course-workspace/units/04-web-pet-demo/STUDENT.md
 course-workspace/units/04-web-pet-demo/AGENT-TASK.md
-course-workspace/units/04-web-pet-demo/materials/COMPONENT-BRIDGE.md
 course-workspace/units/04-web-pet-demo/templates/COLLABORATION-PLAN.md
 course-workspace/units/04-web-pet-demo/templates/HUMAN-AI-DESIGN.md
 course-workspace/units/04-web-pet-demo/templates/VALIDATION-REPORT.md
@@ -63,6 +53,30 @@ course-workspace/units/05-fuzzy-idea-to-project-path/templates/NEXT-TASK.md
 for rel in $required_files; do
   if [ ! -f "$repo/$rel" ]; then
     echo "missing file: $rel"
+    ok=0
+  fi
+done
+
+retired_paths='
+course-workspace/CURRENT.md
+course-workspace/DECISIONS.md
+course-workspace/JOIN.md
+course-workspace/LOG-2026-07.md
+course-workspace/PROJECTS.md
+course-workspace/ROLES.md
+course-workspace/SOURCES.md
+course-workspace/TASKS.md
+course-workspace/artifacts
+course-workspace/inbox
+course-workspace/outputs
+pre-lite-workspace/START-HERE.md
+pre-lite-workspace/prompts/github-primer-prompt.md
+course-workspace/units/04-web-pet-demo/materials/COMPONENT-BRIDGE.md
+'
+
+for rel in $retired_paths; do
+  if [ -e "$repo/$rel" ]; then
+    echo "retired management path must not exist: $rel"
     ok=0
   fi
 done
@@ -94,6 +108,12 @@ fi
 
 if grep -R -E '共享 Workspace|共享 workspace|共享输出|outputs/person|proposal-only|write-enabled|加入申请' "$repo/course-workspace/units" >/dev/null 2>&1; then
   echo "retired shared-write workflow found in Unit materials"
+  ok=0
+fi
+
+if grep -R -E 'JOIN\.md|ROLES\.md|inbox/joins|outputs/person|proposal-only|write-enabled|加入申请|共享课程状态|尚未确认再分发许可|当前课程与 Skill 修订仍在本地，未 commit、未 push' \
+  "$repo" --include='*.md' --exclude-dir=.git >/dev/null 2>&1; then
+  echo "retired management or stale release wording found in Markdown"
   ok=0
 fi
 

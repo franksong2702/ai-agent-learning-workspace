@@ -1,6 +1,6 @@
 # AI Agent Learning Workspace Rules
 
-本 repo 是 Agent 101 的公开课程材料与 Codex 提示词入口，默认只读。它不是加入审批系统、作业提交区或网页宠物代码仓库。
+本 repo 是 Agent 101 的公开课程材料与 Codex 提示词入口，默认只读。它不是作业提交区、课程管理系统或网页宠物代码仓库。
 
 ## 先判断当前场景
 
@@ -15,7 +15,7 @@
 - repo 已在个人 Obsidian 中：读取课前确认清单、`SKILLS.md` 和 Unit 0 材料。
 - 已开始课堂：读取 `course-workspace/AGENT-START-HERE.md`、`SKILLS.md`，再读取当前 Unit 的 `STUDENT.md` 和 `AGENT-TASK.md`。
 
-早期加入页、角色页、旧状态页和历史日志即使仍存在，也不属于当前课程入口，不得覆盖当前 Unit。
+不要寻找或建立额外的加入、角色、审批、共享状态或课程日志流程；当前入口和当前 Unit 已包含执行所需信息。
 
 ## 人与 Codex 怎样分工
 
@@ -26,7 +26,7 @@
 
 ## 写入边界
 
-- 课程 repo 默认只读。除非老师在当前对话中明确要求，不在这里创建个人作业、管理申请、角色状态或课程进度。
+- 课程 repo 默认只读。除非老师在当前对话中明确要求，不在这里创建个人作业、课程状态或管理文件。
 - 个人笔记、学习卡、Pitch、检查报告和 Skill 练习写入个人 Obsidian 的 `Learn/Agent 101/`。
 - 本 repo 的本地副本放在个人 Obsidian 的 `Projects/AI Agent Learning Workspace/`；不要把课程 repo clone 到 `Learn/Agent 101/`。
 - 网页宠物代码写入独立的 `ai-pet-demo` repo，不复制进本 repo。

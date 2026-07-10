@@ -33,24 +33,32 @@ Unit 0 已安装 `teach`。本单元不强制调用；只有 GitHub、Markdown �
 
 不要修改课程 repo，也不需要把这份记录提交到 GitHub。
 
+## 一键复制给 Codex：开始 Unit 1
+
+```text
+请和我开始 Agent 101 的 Unit 1。
+
+先读取课程 repo 中的：
+- course-workspace/units/01-agent-behavior-guide/STUDENT.md
+- course-workspace/units/01-agent-behavior-guide/AGENT-TASK.md
+- course-workspace/units/01-agent-behavior-guide/templates/AGENT-BEHAVIOR-GUIDE.md
+- course-workspace/units/01-agent-behavior-guide/templates/FIRST-AGENT-NOTE.md
+
+请我确认个人 Obsidian 知识库绝对路径，并把唯一输出设为：
+<个人 Obsidian 知识库>/Learn/Agent 101/Unit 1/FIRST-AGENT-NOTE.md
+
+先用不超过 150 字解释这份行为说明会怎样约束你，再完成这个小任务：把“这节课我想学会怎样让 Codex 帮我做事”整理成一份很短的课堂记录。如果我没说清楚，先只问一个问题。
+
+写完后让我在 Obsidian 中打开检查。等我指出一个具体问题后，只修改那一处，再让我重新检查。不要修改课程 repo，不 commit 或 push。
+```
+
 ## 课堂动作
 
-1. 打开 [Codex 行为说明模板](templates/AGENT-BEHAVIOR-GUIDE.md)，先读人能理解的几条规则。
-2. 对 Codex 说：
-
-```text
-请先读取这份 Codex 行为说明，并在本单元按它做事。先告诉我个人记录的目标文件，再开始。
-```
-
-3. 用自然语言交一个小任务，例如：
-
-```text
-请把“这节课我想学会怎样让 Codex 帮我做事”整理成一份很短的课堂记录。如果我没说清楚，先问我一个问题。
-```
-
-4. Codex 根据 [第一次 Codex 课堂记录模板](templates/FIRST-AGENT-NOTE.md)，写入个人 `FIRST-AGENT-NOTE.md`。
-5. 在 Obsidian 中亲自打开文件，检查路径和内容。
-6. 指出一个具体问题，让 Codex 只修改这一处，再重新打开检查。
+1. 点击上面代码块右上角的复制按钮，把完整提示词发给 Codex。
+2. 回答 Codex 对个人 Obsidian 路径和任务内容的确认问题。
+3. Codex 根据模板写入个人 `FIRST-AGENT-NOTE.md`。
+4. 在 Obsidian 中亲自打开文件，检查路径和内容。
+5. 指出一个具体问题，让 Codex 只修改这一处，再重新打开检查。
 
 你也可以直接在 Obsidian 中修改 Markdown。重点不是必须让 Codex 改，而是知道文件在哪里、内容由谁决定、怎样验证它真的改对了。
 

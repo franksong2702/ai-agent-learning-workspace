@@ -32,17 +32,35 @@
 
 学习卡只保存在第一个位置。课程 repo 不保存学习卡副本。
 
+## 一键复制给 Codex：开始 Unit 2
+
+```text
+请和我开始 Agent 101 的 Unit 2。
+
+先读取课程 repo 中的：
+- course-workspace/units/02-aihot-obsidian-pitch/STUDENT.md
+- course-workspace/units/02-aihot-obsidian-pitch/AGENT-TASK.md
+- course-workspace/units/02-aihot-obsidian-pitch/materials/WEB-CLIPPER-SETUP.md
+- course-workspace/units/02-aihot-obsidian-pitch/templates/COMPILATION-RULES.md
+- course-workspace/units/02-aihot-obsidian-pitch/templates/LEARNING-CARD.md
+- course-workspace/units/02-aihot-obsidian-pitch/templates/PITCH.md
+
+先请我确认个人 Obsidian 知识库绝对路径、主题名称、Raw 文件路径和原文链接。缺少 Raw 时，先帮助我按页面说明抓取，不要编造文章内容。
+
+所有个人产物只写入 <个人 Obsidian 知识库>/Learn/Wiki/<主题>/。先和我讨论编译规则草稿，等我确认后再生成 COMPILATION-RULES.md 和 COMPILATION.md；然后通过提问收集我的理解、疑问和修改意见，再生成 LEARNING-CARD.md；最后帮助我准备 PITCH.md。
+
+每一步完成后告诉我实际文件路径，让我打开检查。至少对照原文核对一条事实。不要修改课程 repo，不 commit 或 push。
+```
+
 ## 课堂动作
 
-1. 打开 [Web Clipper 准备页](materials/WEB-CLIPPER-SETUP.md)，确认测试抓取文件的标题、来源、frontmatter 和保存路径正确。
-2. 使用 `aihot` 或 AI Hot 网页找到候选，选定文章并确认原始链接和主题名称；继续追到原作者页面。没有自选材料时打开 [备用文章池](materials/ARTICLE-CANDIDATES.md)。
-3. 用 Web Clipper 把文章保存到 `<主题>/raw/`；如果使用已有 Raw，只读原文件并记录它的路径。
-4. 打开 [编译规则模板](templates/COMPILATION-RULES.md)，让 Codex 生成一份个人编译规则草稿。
-5. 先由你确认编译规则，再让 Codex 写出 `COMPILATION.md`，其中包含摘要、关键概念、关键实体、来源和不确定点。
-6. 打开 [学习卡模板](templates/LEARNING-CARD.md)。Codex 必须先问你的理解、兴趣、疑问和修改意见，再完成学习卡。“还没弄懂”写你对内容的疑问；“修改意见”写编译文件中表达不准、来源不足或需要补充的地方。
-7. 回看原文链接或 Raw 文件，核对学习卡中的至少一条事实，并写下你要求修改或补充的地方。
-8. 打开 [Pitch 模板](templates/PITCH.md)，准备并讲出 60-90 秒版本。
-9. 重新打开个人目录中的四个产物，确认课程 repo 没有被修改。
+1. 点击上面代码块右上角的复制按钮，把完整提示词发给 Codex。
+2. 打开 [Web Clipper 准备页](materials/WEB-CLIPPER-SETUP.md)，确认测试抓取文件的标题、来源、frontmatter 和保存路径正确。
+3. 使用 `aihot` 或 AI Hot 网页找到候选，选定文章并确认原始链接和主题名称；继续追到原作者页面。没有自选材料时打开 [备用文章池](materials/ARTICLE-CANDIDATES.md)。
+4. 用 Web Clipper 把文章保存到 `<主题>/raw/`；如果使用已有 Raw，只读原文件并记录它的路径。
+5. 先确认编译规则，再依次完成编译文件、学习卡和 Pitch。
+6. 回看原文链接或 Raw 文件，核对学习卡中的至少一条事实，并写下你要求修改或补充的地方。
+7. 重新打开个人目录中的四个产物，确认课程 repo 没有被修改。
 
 ## 个人目录应能看到
 

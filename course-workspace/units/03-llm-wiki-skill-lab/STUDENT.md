@@ -33,16 +33,34 @@ Skill 不是收藏夹，也不是安装越多越好。它是一套你愿意让 C
 
 课程 repo 只提供模板和说明，本单元保持只读；Skill 草稿、试用报告和个人学习卡都留在个人 Obsidian。
 
+## 一键复制给 Codex：开始 Unit 3
+
+```text
+请和我开始 Agent 101 的 Unit 3。
+
+先读取课程 repo 中的 SKILLS.md，以及：
+- course-workspace/units/03-llm-wiki-skill-lab/STUDENT.md
+- course-workspace/units/03-llm-wiki-skill-lab/AGENT-TASK.md
+- course-workspace/units/03-llm-wiki-skill-lab/templates/MINI-SKILL.md
+- course-workspace/units/03-llm-wiki-skill-lab/templates/TRIAL-REPORT.md
+
+先检查 writing-great-skills、skill-creator、skill-installer 是否可用；缺失项只按 SKILLS.md 的固定来源处理，不搜索同名替代品，不覆盖现有目录。
+
+请我确认个人 Obsidian 知识库、Unit 2 产物和第二篇 Raw 的绝对路径。Skill 草稿只写入 <个人 Obsidian 知识库>/Learn/Agent 101/Skills/aihot-to-llm-wiki-card/，第二篇文章产物写入 Learn/Wiki/<第二主题>/。
+
+先帮助我从 Unit 2 找出真正重复的步骤，再用模板建立 Skill 草稿。草稿完成后停下，让我使用本页后面的“手动试用提示词”。未经我明确决定，不安装 Skill。不要修改课程 repo，不 commit 或 push。
+```
+
 ## 课堂动作
 
-1. 先按 [课程 Skill 地图](../../../SKILLS.md) 的 Unit 3 提示词完成安装检查；不重复安装 Codex 自带 Skill。
-2. 回看 Unit 2，列出每次都会重复的步骤和只属于那篇文章的内容。
-3. 让 Codex 读取 `writing-great-skills`，重点检查触发方式、信息层级、单一事实源、可检查完成标准和常见失效方式。
-4. 打开 [mini Skill 模板](templates/MINI-SKILL.md)，让 `skill-creator` 帮助建立或检查草稿结构，但内容仍来自 Unit 2 的真实流程。
-5. 把下面的“手动试用提示词”发给 Codex，用第二篇 Raw 试用草稿，观察它是否按相同过程写入新的 `Learn/Wiki/<第二主题>/`。
+1. 点击上面代码块右上角的复制按钮，把完整提示词发给 Codex。
+2. 由 Codex 按 `SKILLS.md` 完成 Unit 3 安装检查；不重复安装 Codex 自带 Skill。
+3. 回看 Unit 2，列出每次都会重复的步骤和只属于那篇文章的内容。
+4. 用模板建立或检查草稿结构，但内容仍来自 Unit 2 的真实流程。
+5. 把下面的“手动试用提示词”发给 Codex，用第二篇 Raw 试用草稿。
 6. 打开 [试用报告模板](templates/TRIAL-REPORT.md)，记录实际输入、输出、偏差和修改。
-7. 修改 `SKILL.md`，删掉重复或不会改变行为的句子，收紧容易误触发或越权的动作。
-8. 由你确认：暂不安装，还是让 `skill-installer` 另起一个安装动作。没有明确确认时，默认不安装。
+7. 修改 `SKILL.md`，收紧容易误触发或越权的动作。
+8. 由你确认是否安装；没有明确确认时默认不安装。
 
 手动试用不是把 Skill 安装到系统里，而是明确告诉 Codex：本次只按这份草稿执行。未安装时，你每次都要提供草稿绝对路径；正式安装只是让它以后更容易被找到和调用，不会增加权限。`disable-model-invocation: true` 表示这份 Skill 只能由人主动调用，Codex 和其他 Skill 不会自动触发它。
 

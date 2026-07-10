@@ -60,7 +60,7 @@ teach
 aihot
 ```
 
-使用 [Unit 0 的 Codex 准备提示词](course-workspace/units/00-workspace-entry/PREPARE-WITH-CODEX.md)。安装后需要新开一个 Codex task，才能确认新 Skill 已进入可用列表。
+打开 [Unit 0 人读页](course-workspace/units/00-workspace-entry/STUDENT.md)，直接使用页面内“第一段：检查与安装”和“第二段：新 task 验证”两个一键复制块。安装后需要新开一个 Codex task，才能确认新 Skill 已进入可用列表。
 
 `teach` 会把当前目录当成持续学习空间。课程中使用它时，工作目录必须位于个人 Obsidian 的 `Learn/Agent 101/`，不要让它在课程 repo 中创建学习文件。
 

@@ -8,12 +8,13 @@
 2. [课程 Skill 地图](../SKILLS.md)
 3. [Unit 0-5 课程入口](units/README.md)
 
-Codex 第一次进入时，先打开 [课堂 Codex 入口](AGENT-START-HERE.md)。Unit 0 在课前自行准备，线下课程先验证它，再进入 Unit 1。
+Codex 第一次进入时，先打开 [课堂 Codex 入口](AGENT-START-HERE.md)。Unit 0 的 repo、Vault 和两个 Skill 在课前自行准备；线下课程先验证这些结果，再安装并检查 Claudian，最后进入 Unit 1。
 
 ## 课堂中怎么用
 
 - 先读当前 Unit 的 `STUDENT.md`，理解自己要做和判断的事情。
-- 再让 Codex 读同目录的 `AGENT-TASK.md`，执行适合交给 Agent 的部分。
+- 当前 Unit 需要 Codex 动手时，`STUDENT.md` 会直接给出可一键复制的完整提示词；不需要再跳到单独的提示词文件。
+- Codex 收到提示词后会读取同目录的 `AGENT-TASK.md`，按边界执行并在需要人判断时停下来。
 - 需要 Skill 时按根目录 `SKILLS.md` 的批次准备，不一次全部安装。
 - 课程 repo 默认只读；老师当场明确要求时，才创建指定的课堂文件。
 

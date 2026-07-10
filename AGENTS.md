@@ -2,18 +2,14 @@
 
 本 repo 是 Agent 101 的公开课程材料与 Codex 提示词入口，默认只读。它不是作业提交区、课程管理系统或网页宠物代码仓库。
 
-## 先判断当前场景
+## 固定入口
 
 任何场景都先读取：
 
 1. `README.md`
 2. `AGENT-START-HERE.md`
 
-然后按入口继续：
-
-- 刚在 GitHub 打开 repo：读取 `pre-lite-workspace/README.md` 和其中点名的安装提示词。
-- repo 已在个人 Obsidian 中：读取课前确认清单、`SKILLS.md` 和 Unit 0 材料。
-- 已开始课堂：读取 `course-workspace/AGENT-START-HERE.md`、`SKILLS.md`，再读取当前 Unit 的 `STUDENT.md` 和 `AGENT-TASK.md`。
+根 `README.md` 是唯一安装与课前承接入口。先按它的第 1-4 步工作；完成后再读取 `SKILLS.md`、当前 Unit 的 `STUDENT.md` 和 `AGENT-TASK.md`。
 
 不要寻找或建立额外的加入、角色、审批、共享状态或课程日志流程；当前入口和当前 Unit 已包含执行所需信息。
 

@@ -9,17 +9,11 @@ README.md
 SKILLS.md
 AGENTS.md
 AGENT-START-HERE.md
-pre-lite-workspace/README.md
-pre-lite-workspace/materials/day-minus-1-preflight-checklist.md
-pre-lite-workspace/prompts/preflight-agent-prompt.md
-pre-lite-workspace/prompts/workspace-setup-prompt.md
-pre-lite-workspace/templates/preflight-reply-template.md
 course-workspace/README.md
 course-workspace/AGENT-START-HERE.md
 course-workspace/units/README.md
 course-workspace/units/00-workspace-entry/STUDENT.md
 course-workspace/units/00-workspace-entry/AGENT-TASK.md
-course-workspace/units/00-workspace-entry/PREPARE-WITH-CODEX.md
 course-workspace/units/00-workspace-entry/REPO-ACCESS.md
 course-workspace/units/01-agent-behavior-guide/STUDENT.md
 course-workspace/units/01-agent-behavior-guide/AGENT-TASK.md
@@ -69,8 +63,8 @@ course-workspace/TASKS.md
 course-workspace/artifacts
 course-workspace/inbox
 course-workspace/outputs
-pre-lite-workspace/START-HERE.md
-pre-lite-workspace/prompts/github-primer-prompt.md
+pre-lite-workspace
+course-workspace/units/00-workspace-entry/PREPARE-WITH-CODEX.md
 course-workspace/units/04-web-pet-demo/materials/COMPONENT-BRIDGE.md
 '
 
@@ -127,13 +121,32 @@ if ! grep -Fq 'Unit 0：只准备两个' "$repo/SKILLS.md"; then
   ok=0
 fi
 
-if ! grep -Fq 'skills/productivity/teach' "$repo/course-workspace/units/00-workspace-entry/PREPARE-WITH-CODEX.md"; then
+if ! grep -Fq 'skills/productivity/teach' "$repo/course-workspace/units/00-workspace-entry/STUDENT.md"; then
   echo "Unit 0 prompt missing fixed teach source"
   ok=0
 fi
 
-if ! grep -Fq 'https://aihot.virxact.com/aihot-skill/install.sh' "$repo/course-workspace/units/00-workspace-entry/PREPARE-WITH-CODEX.md"; then
+if ! grep -Fq 'https://aihot.virxact.com/aihot-skill/install.sh' "$repo/course-workspace/units/00-workspace-entry/STUDENT.md"; then
   echo "Unit 0 prompt missing official AI Hot installer source"
+  ok=0
+fi
+
+if ! grep -Fq 'https://community.obsidian.md/plugins/realclaudian' "$repo/course-workspace/units/00-workspace-entry/STUDENT.md" || \
+   ! grep -Fq 'https://github.com/YishenTu/claudian' "$repo/course-workspace/units/00-workspace-entry/STUDENT.md"; then
+  echo "Unit 0 missing official Claudian sources"
+  ok=0
+fi
+
+if ! grep -Fq 'Claudian 最小读写检查' "$repo/course-workspace/units/00-workspace-entry/STUDENT.md" || \
+   ! grep -Fq 'CLAUDIAN-CHECK.md' "$repo/course-workspace/units/00-workspace-entry/STUDENT.md" || \
+   ! grep -Fq 'provider 显示为 Codex' "$repo/course-workspace/units/00-workspace-entry/STUDENT.md"; then
+  echo "Unit 0 missing inline Claudian check prompt"
+  ok=0
+fi
+
+if ! grep -Fq 'CLAUDIAN-CHECK.md' "$repo/course-workspace/units/00-workspace-entry/AGENT-TASK.md" || \
+   ! grep -Fq 'Claudian 失败不阻断后续直接使用 Codex' "$repo/course-workspace/units/00-workspace-entry/AGENT-TASK.md"; then
+  echo "Unit 0 agent contract missing Claudian evidence or fallback"
   ok=0
 fi
 
@@ -175,28 +188,60 @@ if ! grep -Fq '当前 Unit 的 `STUDENT.md`' "$repo/AGENTS.md" || \
   ok=0
 fi
 
-if ! grep -Fq '~/Obsidian/' "$repo/README.md"; then
-  echo "README.md missing current Obsidian path"
+if ! grep -Fq '<个人 Obsidian 知识库>/Projects/AI Agent Learning Workspace/' "$repo/README.md"; then
+  echo "README.md missing personal knowledge-base target path"
   ok=0
 fi
 
-if ! grep -Fq 'stage: public-repo-setup' "$repo/pre-lite-workspace/materials/day-minus-1-preflight-checklist.md"; then
-  echo "workspace continuation checklist missing public-repo stage"
+if ! grep -Fq '前置条件缺失并停下' "$repo/README.md"; then
+  echo "README.md must stop when the Obsidian Vault gate is missing"
   ok=0
 fi
 
-if ! grep -Fq '<个人 Obsidian 知识库>/Projects/AI Agent Learning Workspace/' "$repo/pre-lite-workspace/prompts/workspace-setup-prompt.md"; then
-  echo "workspace setup prompt missing personal knowledge-base target path"
+if ! grep -Fq '不要放进 Learn/Agent 101/' "$repo/README.md"; then
+  echo "README.md must keep the course repo separate from personal learning notes"
   ok=0
 fi
 
-if ! grep -Fq '课前的 Obsidian 准备没有完成' "$repo/pre-lite-workspace/prompts/workspace-setup-prompt.md"; then
-  echo "workspace setup prompt must stop when the pre-class Vault gate is missing"
+if ! grep -Fq '不要再次复制第 2 步的提示词，不要再次 clone' "$repo/README.md"; then
+  echo "README.md missing explicit no-repeat instruction"
   ok=0
 fi
 
-if ! grep -Fq '不要把仓库 clone 到 `Learn/Agent 101/`' "$repo/pre-lite-workspace/prompts/workspace-setup-prompt.md"; then
-  echo "workspace setup prompt must keep the personal learning directory separate"
+step1="$(grep -n -m1 -F '## 第 1 步：' "$repo/README.md" | cut -d: -f1 || true)"
+step2="$(grep -n -m1 -F '## 第 2 步：' "$repo/README.md" | cut -d: -f1 || true)"
+step3="$(grep -n -m1 -F '## 第 3 步：' "$repo/README.md" | cut -d: -f1 || true)"
+step4="$(grep -n -m1 -F '## 第 4 步：' "$repo/README.md" | cut -d: -f1 || true)"
+if [ -z "$step1" ] || [ -z "$step2" ] || [ -z "$step3" ] || [ -z "$step4" ] || \
+   [ "$step1" -ge "$step2" ] || [ "$step2" -ge "$step3" ] || [ "$step3" -ge "$step4" ]; then
+  echo "README.md must contain one ordered Step 1 -> Step 4 path"
+  ok=0
+fi
+
+human_action_pages='
+README.md
+course-workspace/units/00-workspace-entry/STUDENT.md
+course-workspace/units/01-agent-behavior-guide/STUDENT.md
+course-workspace/units/02-aihot-obsidian-pitch/STUDENT.md
+course-workspace/units/03-llm-wiki-skill-lab/STUDENT.md
+course-workspace/units/04-web-pet-demo/STUDENT.md
+course-workspace/units/05-fuzzy-idea-to-project-path/STUDENT.md
+'
+
+for rel in $human_action_pages; do
+  if ! grep -Fq '一键复制给 Codex' "$repo/$rel"; then
+    echo "human action page missing inline Codex prompt: $rel"
+    ok=0
+  fi
+  if ! grep -Fq '```text' "$repo/$rel"; then
+    echo "human action page missing copyable text block: $rel"
+    ok=0
+  fi
+done
+
+if grep -R -E 'pre-lite-workspace|PREPARE-WITH-CODEX|\]\([^)]*prompts/' \
+  "$repo" --include='*.md' --exclude-dir=.git >/dev/null 2>&1; then
+  echo "current Markdown still routes people through a retired prompt page"
   ok=0
 fi
 

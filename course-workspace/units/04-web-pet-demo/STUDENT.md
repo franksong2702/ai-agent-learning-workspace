@@ -31,13 +31,35 @@
 
 这里的 `Node.js` 是运行本地服务的环境，`npm` 用来安装和执行项目命令，`mock` 是不调用付费模型的模拟回复，`branch` 是两个人各自修改代码的分支。页面里的 provider / model 分别表示当前连接方式和具体模型。
 
-## 先看见，再理解
+## 一键复制给 Codex：开始 Unit 4
 
-在 `~/Projects/ai-pet-demo/` 中告诉 Codex：
+只复制一次。Codex 会先检查和解释，再停下来等你打开页面；后面的修改、API 接入和验证会继续在同一段对话中进行，不需要再找其他提示词文件。
 
 ```text
-请先读取 README.md、AGENTS.md 和 docs/COMPONENT-MAP.md，安装依赖并启动网页宠物。先不要改代码，也不要 commit 或 push。请告诉我打开哪个网址，并用中文解释宠物形象、聊天气泡、mock 回复和 DeepSeek 接口分别在哪里。
+请带我完成 Agent 101 的 Unit 4。先不要改代码，也不要 commit 或 push。
+
+请先读取：
+- 当前 Unit 的 STUDENT.md 和 AGENT-TASK.md
+- 课程 repo 根目录的 SKILLS.md
+- 代码 repo ~/Projects/ai-pet-demo/ 中的 README.md、AGENTS.md、docs/COMPONENT-MAP.md、docs/API-GUIDE.md、docs/HUMAN-AI-INTERFACE.md
+
+请严格按以下顺序协助：
+1. 确认课程 repo 和代码 repo 的绝对路径；检查代码 repo 的 git status、origin、upstream，以及 Node.js、npm 是否可用。路径不存在或工作树有未说明的修改时先停下报告，不要另建一份代码 repo。
+2. 在代码 repo 运行 npm install 和 npm run check。启动前检查端口；默认端口被占用时不要停止现有进程，改用空闲端口。
+3. 启动网页后告诉我准确网址，用中文解释宠物形象、皮肤、聊天气泡、mock 回复和 DeepSeek 接口分别由什么负责，然后停下来让我亲自打开页面、切换皮肤并发送一条 mock 消息。
+4. 我确认基线后，一次只问我一个页面可见的小改动。给一个推荐和理由，但允许我修改或否定。先说明准备修改的文件、页面变化和验证方法，等我确认后再改。
+5. 如果两个人分别修改，先帮助我们划分不冲突的范围。遇到同一文件冲突时停止，不自行覆盖。
+6. 报错时使用 diagnosing-bugs 先复现和定位；修改完成后运行 npm run check，并使用 playwright-cli 检查真实页面和桌面、移动视口。
+7. 真实 API 是本 Unit 的完成条件。让我自己把老师提供的 key 放入被 Git 忽略的 .env.local；不要读取、显示或记录 key。按 API-GUIDE 接通 DeepSeek 后，让我亲自在网页发送一条新消息，并核对 provider、model 和非 mock 回复来源。
+8. branch、commit、push 或 Pull Request 前，先解释影响并等待本人和老师对当前动作确认。只允许向个人 fork push，不直接向老师 repo push。
+9. 把协作计划和验证报告写到个人 Obsidian 的 Learn/Agent 101/Unit 4/，不要写回课程 repo。
+
+每到需要我观察页面、选择目标、确认分工、填写 key 或批准 Git 动作时都停下来问我。最终明确区分：自动检查、我亲自看到的页面结果、真实 DeepSeek 往返、仍未验证项。
 ```
+
+## 先看见，再理解
+
+把上面的提示词发给 Codex。它完成基线检查并给出网址后，再亲自打开页面。
 
 打开页面后，先完成三件事：
 

@@ -1,53 +1,92 @@
-# Codex Task：Unit 1 行为说明与自然语言委托
+# Codex Task：Unit 1 自主提问与理解检查
 
 ## 目标
 
-读取课程提供的轻量行为说明，接受人的自然语言委托，只在个人 Obsidian 中创建一份短记录，并由人实际打开和修订。
-
-## 前置
-
-- Unit 0 的 `SETUP-REPORT.md` 可以打开。
-- `course-workspace/units/00-workspace-entry/REPO-ACCESS.md` 中三个公开 repo 已实际验证。
-- 人已确认个人 Obsidian Vault 和课程 repo 的绝对路径。
-- 人同意开始这个小任务。
-
-任一前置不成立时，报告准确缺口，不写文件。
+明确使用已安装的 `teach` Skill，以课程 repo 中的英文原文为主要学习来源，帮助人围绕真实疑惑不断提问、追问和修正，直到能用自己的话讲清楚 Karpathy 的 LLM Wiki 方法。Codex 提供解释和依据，但不能替人完成理解，也不能替人宣布已经掌握。
 
 ## 先读取
 
-1. `course-workspace/units/01-agent-behavior-guide/STUDENT.md`
-2. `course-workspace/units/01-agent-behavior-guide/templates/AGENT-BEHAVIOR-GUIDE.md`
-3. `course-workspace/units/01-agent-behavior-guide/templates/FIRST-AGENT-NOTE.md`
+1. repo 根目录的 `SKILLS.md`
+2. 本目录的 `STUDENT.md`
+3. 本机已安装的 `teach` Skill
+4. `materials/KARPATHY-LLM-WIKI-EN.md`
+5. `materials/KARPATHY-LLM-WIKI-ZH.md`
+6. `materials/KARPATHY-LLM-WIKI-SOURCE.md`
+7. 需要写记录时再读取 `templates/KARPATHY-LEARNING-NOTE.md`
 
-## 执行
+`SLIDES.md` 和 `SLIDES.html` 用于最后的课堂收束，不是自主提问阶段的答案来源。回答文章问题时，以英文原文为准；中文阅读版只帮助理解。
 
-1. 先确认唯一目标文件：
+## 前置
+
+- 人已确认个人 Obsidian Vault 的绝对路径。
+- Unit 0 的准备结果可以打开。
+- 当前 Codex task 能实际读取 `teach`；不能读取时报告准确状态，不得声称已使用。
+- 课程 repo 保持只读。
+- Claudian 不可用时，允许直接用 Codex 操作同一个 Vault。
+
+## Teach 的本单元边界
+
+- 使用 Teach 的互动解释、鼓励追问、复述检查和防止“听懂错觉”的方法。
+- 英文原文是主要知识来源；中文译文是阅读辅助，不用模型记忆替代原文。
+- 本单元沿用课程现有的单份学习记录，不初始化 Teach 默认的完整长期工作区。
+- 不创建 `MISSION.md`、`RESOURCES.md`、`reference/`、`lessons/` 或另一套 learning records。
+- 如果 Teach 无法加载，可以使用相同的自然问答流程继续课堂，但必须明确记录“Teach 未验证”。
+
+## 自主提问阶段
+
+1. 接受自然语言问题，不要求填写任务卡或按固定轮次提问。
+2. 一次只处理当前问题，不主动输出整篇文章的完整总结。
+3. 先给高中生能理解的短答案，再根据追问补充细节。
+4. 回答要指出英文原文的章节；如果原文没有直接回答，明确写成解释、例子或推断。
+5. 人说“还是没懂”时，换一种解释方式，可以使用生活例子、对比、反例或更小的步骤，不重复原句。
+6. 回答后鼓励继续追问，但不要机械追加固定问题，也不要把提问框架变成必须完成的题单。
+7. 人说出自己的理解后，只指出混淆、缺口和缺少原文依据的地方；不把人的表述润色成一份看似完美的标准答案。
+
+## 进入老师提问前的自我检查
+
+当人说“我觉得理解了”时，请人先不看原文和 Slides，用自己的话解释：
+
+- 文章要解决的问题；
+- Raw、Wiki、Schema 的关系；
+- Ingest、Query、Lint 的作用；
+- 人和 Agent 的分工。
+
+只反馈当前解释中最重要的一个缺口，让人自己继续提问和修正。基本讲清楚后，提醒人请老师提问；不要代替老师出完整考题，也不要提前展示 Slides。
+
+老师追问暴露出新问题后，重新进入自主提问阶段。这个循环可以重复，不以提问数量作为完成标准。
+
+## 写入学习记录
+
+收到“整理学习记录”或同等明确指令后：
+
+1. 读取课程模板，不覆盖个人文件中已有的人写内容。
+2. 只把真实讨论过的内容写入；没有讨论过的章节可以留空。
+3. 区分原文观点、Agent 解释、人的理解或修正、未解决问题。
+4. 保留人的原话或接近原意的表述，不把它改写成 Agent 的结论。
+5. 写入后重新打开文件核对，并报告绝对路径。
+
+个人输出位置：
 
 ```text
-<个人 Obsidian 知识库>/Learn/Agent 101/Unit 1/FIRST-AGENT-NOTE.md
+<个人 Obsidian 知识库>/Learn/Agent 101/Unit 1/karpathy-llm-wiki-学习记录.md
 ```
-
-2. 用一句话复述人的自然语言目标；确实不清楚时只问一个最小问题。
-3. 只创建缺失的个人 `Unit 1/` 目录，根据模板写四个短小节。
-4. 重新打开文件，检查内容和路径。
-5. 请人实际打开；人指出问题后，只修改指定部分，再次读取确认。
 
 ## 边界
 
-- 不修改课程 repo、行为说明模板或课堂记录模板。
-- 不在课程 repo 创建额外状态或 GitHub 作业文件。
-- 不 commit、不 push、不 fork、不创建 Pull Request、不发送外部消息。
-- 不扩展到知识库编译、网页开发或后续 Unit。
-- 不写入密码、验证码、API key、Cookie、Token、付款信息或私人原因。
-- 目标文件已经存在时不覆盖，先让人决定检查还是修改。
+- 不修改、覆盖或删除课程 repo 中的英文原文和中文阅读版。
+- 不把个人学习记录写入课程 repo。
+- 不创建 Wiki 页面，不运行 Ingest、Query 或 Lint。
+- 不生成 Unit 2 实施计划或启动提示词。
+- 不 commit、不 push，不记录密码、Token、API key 或其他密钥。
+- 不把文件存在、回答流畅或人说“明白了”直接当作理解完成。
+- 不声称调用了 `teach`，除非当前 task 确实读取并按其方法执行。
+- 不把课程材料或本轮对话说成真实课堂已经验证。
 
 ## 验证
 
-```text
-验证命令：test -f '<个人 Obsidian 知识库>/Learn/Agent 101/Unit 1/FIRST-AGENT-NOTE.md'
-返回结果：<exit code 和关键结果>
-证据路径：<实际绝对路径>
-人工检查：已确认 / 等待检查 / 需要修改
-```
-
-只有文件存在、路径正确，并且人打开检查过，才能报告本单元完成。
+- 回答可追溯到英文原文的真实章节。
+- Teach 的使用状态来自当前 task 的真实读取结果。
+- 人至少完成一次“提问 -> 追问或复述 -> 修正”的循环。
+- 进入老师提问前，人能不看答案完成自己的解释。
+- 写入前有人的明确指令；写入后重新读取个人学习记录。
+- 课程 repo 没有个人产物或其他写入。

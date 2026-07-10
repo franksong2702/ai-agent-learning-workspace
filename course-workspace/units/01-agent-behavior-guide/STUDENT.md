@@ -1,71 +1,114 @@
-# Unit 1：给 Codex 一份行为说明
+# Unit 1：把 LLM Wiki 问明白
 
-## 这次要学什么
+这篇文章不容易。中文阅读版只是帮你跨过英文门槛，不代表读完一遍就应该理解。
 
-你不需要每次填写复杂任务卡。日常使用 Codex 时，可以像聊天一样用自然语言说明想做什么；一份简短的行为说明负责让 Codex 保持稳定的工作习惯。
+这一单元的顺序是：
 
-本单元完成一个很小的闭环：
+> 先自己阅读、自己提问、继续追问 → 觉得理解后，用自己的话讲给老师听 → 回答老师的追问 → 最后看 Slides，核对和整理核心内容。
+
+课程 repo 已经准备好：
+
+- [英文原文](materials/KARPATHY-LLM-WIKI-EN.md)
+- [中文阅读版](materials/KARPATHY-LLM-WIKI-ZH.md)
+- [原文来源说明](materials/KARPATHY-LLM-WIKI-SOURCE.md)
+
+Unit 0 已经准备了 `teach` Skill。这里会第一次正式使用它：文章提供学习内容，Teach 帮你解释、追问和检查理解，但问题仍然由你提出。
+
+## 第一阶段：自己读、自己问
+
+1. 在 Obsidian 中打开中文阅读版。
+2. 先读“核心想法”“架构”“三种操作”和“为什么这种方法有效”。
+3. 碰到不懂、不同意或说不清楚的地方，马上问 Codex。
+4. 一个答案没听懂，就继续追问；可以要求它换一种说法、举例、对比或回到原文。
+5. 不追求把问题一次问得漂亮，能把真实疑惑说出来就可以。
+
+### 不知道怎么问时，可以选一个角度
+
+下面是提问框架，不是必须按顺序完成的题目：
+
+- **词是什么意思**：“这里的 Schema 到底指什么？”
+- **为什么这样设计**：“为什么不能直接让 Agent 每次读取 Raw？”
+- **给我一个例子**：“能不能用复习一门课程来举例？”
+- **和别的方法比较**：“它和把文件上传给聊天 AI 有什么不同？”
+- **挑战这个说法**：“如果 Agent 写错了，Wiki 会不会越积累越错？”
+- **检查我的理解**：“我理解成……，这样对不对？哪里还不准确？”
+
+真正的目标不是问完这些例题，而是继续问到自己能讲清楚。
+
+## 一键复制给 Codex：使用 Teach
 
 ```text
-你用自然语言提出一个小任务
--> Codex 先确认目标文件
--> Codex 按行为说明写一份 Markdown 记录
--> 你打开文件并提出一次修改
--> Codex 只修正这一处
+请明确使用本机已经安装的 teach Skill，和我一起完成 Agent 101 Unit 1 的文章阅读与理解。
+
+先读取本 Unit 的 STUDENT.md、AGENT-TASK.md，以及：
+- materials/KARPATHY-LLM-WIKI-EN.md
+- materials/KARPATHY-LLM-WIKI-ZH.md
+
+请我确认个人 Obsidian Vault 的绝对路径。课程 repo 保持只读，不要把个人内容写进课程 repo。
+
+本次 Teach 的学习目标是：我能够不用照着原文或 Agent 的回答，用自己的话讲清楚 Karpathy 的 LLM Wiki 方法。
+
+把英文原文作为主要学习来源，中文阅读版只用于帮助理解。使用 Teach 的互动教学、追问和复述检查方法，但本单元不要初始化完整的 Teach 文件体系，不创建 MISSION.md、RESOURCES.md、reference/ 或 lessons/；只在我明确要求时使用课程现有的学习记录模板。
+
+接下来由我根据真实疑惑自然提问。每次回答时：
+1. 先用高中生能听懂的中文直接回答；
+2. 说明依据来自英文原文的哪个章节；
+3. 区分“原文观点”和“你的解释或举例”；
+4. 如果我仍然没懂，换一种说法、例子或对比，不要只重复原句；
+5. 一次只处理我当前的问题，不要替我完成整篇文章的理解；
+6. 鼓励我继续追问，但不要按固定题单考我，也不要替我宣布“已经理解”。
+
+当我说“我觉得理解了”时，请让我先不看原文，用自己的话解释：
+- 这篇文章想解决什么问题；
+- Raw、Wiki、Schema 各自做什么；
+- Ingest、Query、Lint 怎样让 Wiki 持续运转；
+- 人和 Agent 各自负责什么。
+
+只指出我说不清楚、混淆或缺少依据的地方，让我继续提问和修正。等我能基本讲清楚后，提醒我请老师提问；不要提前带我看 Slides。
+
+只有我明确说“整理学习记录”时，才根据我们的真实讨论，在个人 Obsidian 中创建或更新：
+Learn/Agent 101/Unit 1/karpathy-llm-wiki-学习记录.md
+
+学习记录使用课程模板 templates/KARPATHY-LEARNING-NOTE.md，保留我的原话、修正和未解决问题。写完后重新打开核对，并告诉我绝对路径。
+
+本单元不搭建 Wiki，不运行 Ingest，不生成 Unit 2 计划，不修改英文或中文课程材料，不 commit、不 push。
 ```
 
-## 开始前确认
+如果当前 Codex task 不能读取 `teach`，不要假装已经调用。保留准确错误并告诉老师；可以先用同样的自然提问方式继续，但完成记录必须写明“Teach 未验证”。
 
-- Unit 0 的 `SETUP-REPORT.md` 可以打开。
-- [三个公开 Repo 检查](../00-workspace-entry/REPO-ACCESS.md)已经完成；不需要 GitHub 邀请。
-- 课程 repo 位于个人 Obsidian 的 `Projects/AI Agent Learning Workspace/`。
-- 个人 Obsidian Vault 的绝对路径已经确认。
+## 第二阶段：先讲给老师听
 
-Unit 0 已安装 `teach`。本单元不强制调用；只有 GitHub、Markdown 或 Agent 行为规则确实听不懂时，才明确要求 Codex 在个人 `Learn/Agent 101/` 中使用 `teach`。完整安排见 [课程 Skill 地图](../../../SKILLS.md)。
+当你觉得理解了，先不要看 Slides，也不要照着 Codex 的答案念。
 
-## 文件放在哪里
+用自己的话向老师说明：
 
-课程模板从公开课程 repo 读取，个人产物只写入：
+1. 这篇文章想解决什么问题；
+2. LLM Wiki 和普通文件问答有什么区别；
+3. Raw、Wiki、Schema 怎样配合；
+4. 人为什么仍然不能退出这个系统。
 
-```text
-<个人 Obsidian 知识库>/Learn/Agent 101/Unit 1/FIRST-AGENT-NOTE.md
-```
+老师会根据你的解释继续追问。说不清楚很正常：回到文章或 Codex，针对刚才暴露的问题继续问，再回来重新解释。
 
-不要修改课程 repo，也不需要把这份记录提交到 GitHub。
+## 第三阶段：最后看 Slides
 
-## 一键复制给 Codex：开始 Unit 1
+完成自己的提问和老师的追问之后，再共同打开 `SLIDES.html`。
 
-```text
-请和我开始 Agent 101 的 Unit 1。
+Slides 用来：
 
-先读取课程 repo 中的：
-- course-workspace/units/01-agent-behavior-guide/STUDENT.md
-- course-workspace/units/01-agent-behavior-guide/AGENT-TASK.md
-- course-workspace/units/01-agent-behavior-guide/templates/AGENT-BEHAVIOR-GUIDE.md
-- course-workspace/units/01-agent-behavior-guide/templates/FIRST-AGENT-NOTE.md
+- 检查有没有遗漏文章的关键结构；
+- 纠正容易混淆的概念；
+- 把零散理解整理成一张清楚的全景图；
+- 引出 Unit 2 要实际验证的事情。
 
-请我确认个人 Obsidian 知识库绝对路径，并把唯一输出设为：
-<个人 Obsidian 知识库>/Learn/Agent 101/Unit 1/FIRST-AGENT-NOTE.md
-
-先用不超过 150 字解释这份行为说明会怎样约束你，再完成这个小任务：把“这节课我想学会怎样让 Codex 帮我做事”整理成一份很短的课堂记录。如果我没说清楚，先只问一个问题。
-
-写完后让我在 Obsidian 中打开检查。等我指出一个具体问题后，只修改那一处，再让我重新检查。不要修改课程 repo，不 commit 或 push。
-```
-
-## 课堂动作
-
-1. 点击上面代码块右上角的复制按钮，把完整提示词发给 Codex。
-2. 回答 Codex 对个人 Obsidian 路径和任务内容的确认问题。
-3. Codex 根据模板写入个人 `FIRST-AGENT-NOTE.md`。
-4. 在 Obsidian 中亲自打开文件，检查路径和内容。
-5. 指出一个具体问题，让 Codex 只修改这一处，再重新打开检查。
-
-你也可以直接在 Obsidian 中修改 Markdown。重点不是必须让 Codex 改，而是知道文件在哪里、内容由谁决定、怎样验证它真的改对了。
+Slides 不是标准答案，也不能替代前面的提问和解释。
 
 ## 什么算完成
 
-- 三个公开 repo 都能在浏览器打开，课程 repo 已在 Obsidian 中可见。
-- `FIRST-AGENT-NOTE.md` 位于个人 `Learn/Agent 101/Unit 1/`。
-- 记录简短表达了你的目标和发现，不是空泛套话。
-- 你完成一次“指出具体问题 -> Codex 只改这一处 -> 重新打开确认”。
-- 课程 repo 没有因本单元产生个人作业或状态文件。
+- 英文原文和中文阅读版都能在 Obsidian 中打开。
+- 针对自己的真实疑惑进行过提问和追问，而不是只读 Codex 的总结。
+- 当前 Codex task 已实际读取并使用 `teach`；若未验证，已准确说明并交给老师处理。
+- 能不照着文章或 Agent 回答，用自己的话讲清楚核心方法。
+- 回答过老师的追问，并根据暴露的问题继续修正过理解。
+- 最后使用 Slides 核对和整理，而不是提前从 Slides 抄答案。
+- 需要保留讨论时，已经亲自打开并核对个人学习记录。
+- Unit 1 没有搭建 Wiki、运行 Unit 2、修改课程 repo、commit 或 push。

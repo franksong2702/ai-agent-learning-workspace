@@ -15,10 +15,16 @@ course-workspace/units/README.md
 course-workspace/units/00-workspace-entry/STUDENT.md
 course-workspace/units/00-workspace-entry/AGENT-TASK.md
 course-workspace/units/00-workspace-entry/REPO-ACCESS.md
+course-workspace/units/00-workspace-entry/SLIDES.md
+course-workspace/units/00-workspace-entry/SLIDES.html
 course-workspace/units/01-agent-behavior-guide/STUDENT.md
 course-workspace/units/01-agent-behavior-guide/AGENT-TASK.md
-course-workspace/units/01-agent-behavior-guide/templates/AGENT-BEHAVIOR-GUIDE.md
-course-workspace/units/01-agent-behavior-guide/templates/FIRST-AGENT-NOTE.md
+course-workspace/units/01-agent-behavior-guide/SLIDES.md
+course-workspace/units/01-agent-behavior-guide/SLIDES.html
+course-workspace/units/01-agent-behavior-guide/materials/KARPATHY-LLM-WIKI-SOURCE.md
+course-workspace/units/01-agent-behavior-guide/materials/KARPATHY-LLM-WIKI-EN.md
+course-workspace/units/01-agent-behavior-guide/materials/KARPATHY-LLM-WIKI-ZH.md
+course-workspace/units/01-agent-behavior-guide/templates/KARPATHY-LEARNING-NOTE.md
 course-workspace/units/02-aihot-obsidian-pitch/STUDENT.md
 course-workspace/units/02-aihot-obsidian-pitch/AGENT-TASK.md
 course-workspace/units/02-aihot-obsidian-pitch/templates/COMPILATION-RULES.md
@@ -75,7 +81,7 @@ for rel in $retired_paths; do
   fi
 done
 
-if grep -R -E 'gh[pousr]_[A-Za-z0-9_]{20,}|sk-[A-Za-z0-9_-]{20,}|xox[baprs]-[A-Za-z0-9-]{20,}|BEGIN (RSA |OPENSSH |EC |DSA )?PRIVATE KEY|DEEPSEEK_API_KEY[[:space:]]*=[[:space:]]*[^<[:space:]]+' "$repo" --exclude-dir=.git >/dev/null 2>&1; then
+if grep -R -E 'gh[pousr]_[A-Za-z0-9_]{20,}|(^|[^A-Za-z0-9_-])sk-[A-Za-z0-9_-]{20,}|xox[baprs]-[A-Za-z0-9-]{20,}|BEGIN (RSA |OPENSSH |EC |DSA )?PRIVATE KEY|DEEPSEEK_API_KEY[[:space:]]*=[[:space:]]*[^<[:space:]]+' "$repo" --exclude-dir=.git >/dev/null 2>&1; then
   echo "possible secret found"
   ok=0
 fi
@@ -90,7 +96,7 @@ if [ -d "$repo/ai-pet-demo" ] || [ -d "$repo/node_modules" ]; then
   ok=0
 fi
 
-if grep -R -E '绿[[:space:]]*/[[:space:]]*黄[[:space:]]*/[[:space:]]*红|My Obsidian Vault|Claude Code|Hermes|老师 Agent|第一个人 Agent|第二个人 Agent' "$repo" --exclude-dir=.git --exclude=check-workspace.sh >/dev/null 2>&1; then
+if grep -R -E '绿[[:space:]]*/[[:space:]]*黄[[:space:]]*/[[:space:]]*红|My Obsidian Vault|Claude Code|Hermes|老师 Agent|第一个人 Agent|第二个人 Agent' "$repo" --exclude-dir=.git --exclude=check-workspace.sh --exclude=KARPATHY-LLM-WIKI-EN.md --exclude=KARPATHY-LLM-WIKI-ZH.md >/dev/null 2>&1; then
   echo "stale learner-facing wording found"
   ok=0
 fi
@@ -121,13 +127,25 @@ if ! grep -Fq 'Unit 0：只准备两个' "$repo/SKILLS.md"; then
   ok=0
 fi
 
-if ! grep -Fq 'skills/productivity/teach' "$repo/course-workspace/units/00-workspace-entry/STUDENT.md"; then
-  echo "Unit 0 prompt missing fixed teach source"
+if ! grep -Fq 'skills/productivity/teach' "$repo/course-workspace/units/00-workspace-entry/AGENT-TASK.md"; then
+  echo "Unit 0 agent contract missing fixed teach source"
   ok=0
 fi
 
-if ! grep -Fq 'https://aihot.virxact.com/aihot-skill/install.sh' "$repo/course-workspace/units/00-workspace-entry/STUDENT.md"; then
-  echo "Unit 0 prompt missing official AI Hot installer source"
+if ! grep -Fq 'https://aihot.virxact.com/aihot-skill/install.sh' "$repo/course-workspace/units/00-workspace-entry/AGENT-TASK.md"; then
+  echo "Unit 0 agent contract missing official AI Hot installer source"
+  ok=0
+fi
+
+unit0_student_lines="$(wc -l < "$repo/course-workspace/units/00-workspace-entry/STUDENT.md" | tr -d ' ')"
+if [ "$unit0_student_lines" -gt 110 ]; then
+  echo "Unit 0 human page is too long: $unit0_student_lines lines"
+  ok=0
+fi
+
+unit0_prompt_blocks="$(grep -c '^```text$' "$repo/course-workspace/units/00-workspace-entry/STUDENT.md" || true)"
+if [ "$unit0_prompt_blocks" -ne 3 ]; then
+  echo "Unit 0 human page must contain exactly three copyable prompts"
   ok=0
 fi
 
@@ -162,6 +180,80 @@ fi
 
 if ! grep -Fq '<个人 Obsidian 知识库>/Learn/Agent 101/Unit 0/SETUP-REPORT.md' "$repo/course-workspace/units/00-workspace-entry/AGENT-TASK.md"; then
   echo "Unit 0 prompt missing personal report path"
+  ok=0
+fi
+
+unit1_student="$repo/course-workspace/units/01-agent-behavior-guide/STUDENT.md"
+unit1_agent="$repo/course-workspace/units/01-agent-behavior-guide/AGENT-TASK.md"
+unit1_slides="$repo/course-workspace/units/01-agent-behavior-guide/SLIDES.md"
+
+unit1_prompt_blocks="$(grep -c '^```text$' "$unit1_student" || true)"
+if [ "$unit1_prompt_blocks" -ne 1 ]; then
+  echo "Unit 1 human page must contain exactly one copyable prompt: $unit1_prompt_blocks"
+  ok=0
+fi
+
+if grep -E '第 [1-6] 轮|问题页|答案页|六轮问答' "$unit1_student" "$unit1_agent" "$unit1_slides" >/dev/null 2>&1; then
+  echo "Unit 1 still contains the retired fixed-round Q&A flow"
+  ok=0
+fi
+
+if grep -E '老师|演示|示范|讲师|讲稿|和老师一起' "$unit1_slides" >/dev/null 2>&1; then
+  echo "Unit 1 Slides contain presenter-only wording"
+  ok=0
+fi
+
+if ! grep -Fq '先用高中生能听懂的中文直接回答' "$unit1_student" || \
+   ! grep -Fq '接受自然语言问题' "$unit1_agent"; then
+  echo "Unit 1 missing accessible natural-discussion contract"
+  ok=0
+fi
+
+if ! grep -Fq '请明确使用本机已经安装的 teach Skill' "$unit1_student" || \
+   ! grep -Fq '正式使用 `teach` 阅读指定原文' "$repo/SKILLS.md" || \
+   ! grep -Fq '不初始化 Teach 默认的完整长期工作区' "$unit1_agent"; then
+  echo "Unit 1 missing the scoped Teach contract"
+  ok=0
+fi
+
+unit1_self="$(grep -n -m1 -F '## 第一阶段：自己读、自己问' "$unit1_student" | cut -d: -f1 || true)"
+unit1_teacher="$(grep -n -m1 -F '## 第二阶段：先讲给老师听' "$unit1_student" | cut -d: -f1 || true)"
+unit1_slides_last="$(grep -n -m1 -F '## 第三阶段：最后看 Slides' "$unit1_student" | cut -d: -f1 || true)"
+if [ -z "$unit1_self" ] || [ -z "$unit1_teacher" ] || [ -z "$unit1_slides_last" ] || \
+   [ "$unit1_self" -ge "$unit1_teacher" ] || [ "$unit1_teacher" -ge "$unit1_slides_last" ]; then
+  echo "Unit 1 must run self-questioning -> teacher questions -> Slides"
+  ok=0
+fi
+
+if grep -Fq 'UNIT-2-WIKI-PLAN.md' "$unit1_student" || \
+   grep -Fq 'Unit 2 启动提示词' "$unit1_student"; then
+  echo "Unit 1 must not generate the Unit 2 plan"
+  ok=0
+fi
+
+if ! grep -Fq '英文文件来源：老师于 2026-07-10 提供的课堂原文快照' \
+  "$repo/course-workspace/units/01-agent-behavior-guide/materials/KARPATHY-LLM-WIKI-SOURCE.md"; then
+  echo "Unit 1 source card missing the supplied snapshot provenance"
+  ok=0
+fi
+
+if ! grep -Fq '## The core idea' \
+  "$repo/course-workspace/units/01-agent-behavior-guide/materials/KARPATHY-LLM-WIKI-EN.md" || \
+   ! grep -Fq '## 核心想法' \
+  "$repo/course-workspace/units/01-agent-behavior-guide/materials/KARPATHY-LLM-WIKI-ZH.md"; then
+  echo "Unit 1 local English or Chinese reading is incomplete"
+  ok=0
+fi
+
+for concept in '三层架构' '三种操作' '人和 Agent 怎样分工' '下一单元'; do
+  if ! grep -Fq "$concept" "$unit1_slides"; then
+    echo "Unit 1 Slides missing core idea: $concept"
+    ok=0
+  fi
+done
+
+if grep -E '第 [1-6] 轮：问题|第 [1-6] 轮：答案' "$unit1_slides" >/dev/null 2>&1; then
+  echo "Unit 1 Slides must list core ideas without Q&A answer pages"
   ok=0
 fi
 

@@ -29,7 +29,9 @@ Claudian 不是课前硬前置。它在线下由人从 Obsidian Community Plugin
 1. 用只读命令检查 repo 根目录、`git remote -v` 和关键文件。
 2. 使用 `git ls-remote` 或等价只读方式检查 `REPO-ACCESS.md` 中三个公开 repo；不需要访问令牌。
 3. 检查 `teach`、`aihot` 是否已安装以及各自 `SKILL.md` 是否存在。
-4. 同名目录不存在时，按 `STUDENT.md` 中“一键复制给 Codex”的固定来源安装缺失项。
+4. 同名目录不存在时，按根 `SKILLS.md` 的固定来源安装缺失项：
+   - `teach` 使用 `skill-installer` 从 `https://github.com/mattpocock/skills/tree/main/skills/productivity/teach` 安装完整目录。
+   - `aihot` 先读取 `https://aihot.virxact.com/aihot-skill/install.sh`；只有确认它不使用 `sudo`、不修改指定 Skill 目录之外的位置，才将目标设为 `~/.codex/skills/aihot/` 后执行。
 5. 安装后提醒人新开 Codex task；不要声称当前 task 已经重新加载新 Skill。
 6. 在新 task 中读取两个 Skill，查询一次 AI Hot，并写个人 `SETUP-REPORT.md`。
 7. 只创建缺失的个人报告目录，不改动其他个人文件。

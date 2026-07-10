@@ -41,10 +41,14 @@
 
 ## GitHub 协作
 
+- 课堂组合 branch：`class/2026-07`
+- 工作 branch 是否从课堂 branch 建立：
 - 当前 branch：
 - 当前 Git 状态：
 - commit SHA：
 - Pull Request 链接：
+- Pull Request 目标是否为 `class/2026-07`：
+- 老师 repo `main` 是否保持课堂前状态：
 - 另一人的 review 结论：
 - 已获老师确认并执行的动作：
 - 尚未执行的外部动作：

@@ -1,97 +1,155 @@
-# Codex Task：Unit 3 LLM Wiki Skill Lab
+# Codex Task：Unit 3 从一次真实流程得到可重复 Skill
 
 ## 目标
 
-使用 `writing-great-skills`，把 Unit 2 已真实执行过的文章编译流程整理成可预测、边界清楚的 mini Skill。先写入个人课程沉淀区，用第二篇 Raw 试用，再让人决定是否安装。
+把 Unit 2 已真实运行并经过人工检查的 Wiki 编译方法整理成 `compile-raw-to-wiki`。先生成个人草稿，再试编 1 篇 Raw，根据人工反馈修订；得到明确同意后显式启用，并在新 task 中编译剩余 3–4 篇 Raw。
 
-## 前置
+本合同支持四种明确阶段：`起草`、`单篇试编`、`显式启用`、`批量编译`。只执行人当前要求的阶段，不自动跨过人工确认门。
 
-开始写文件前，逐项确认：
+## 必须先确认的事实
 
-1. 个人 Obsidian 知识库的绝对路径。
-2. Unit 2 主题目录，以及四个产物路径：`COMPILATION-RULES.md`、`COMPILATION.md`、`LEARNING-CARD.md`、`PITCH.md`。
-3. 第二篇 Raw 的原文链接和文件路径。
-4. `writing-great-skills` 是否可读取；可读取时先按它检查 Skill 结构。
-5. 个人 Skill 草稿目录是否为 `<个人 Obsidian 知识库>/Learn/Agent 101/Skills/aihot-to-llm-wiki-card/`。
-6. 课程 repo 保持只读，所有个人产物只写入第 5 项和个人 `Learn/Wiki/` 目录。
+1. 个人 Obsidian Vault 和现有 `Learn/Wiki/` 的绝对路径。
+2. Unit 2 的 Raw、规则说明、Index、Log、知识页面和人工修正真实存在。
+3. 本单元新准备 4–5 篇 Web Clipper Raw；每篇正文、原始链接和抓取日期可读。
+4. `writing-great-skills` 和 Codex 自带的 `skill-creator` 可实际读取。
+5. 个人 Skill 正文目录是 `<Vault>/Learn/Agent 101/Skills/compile-raw-to-wiki/`。
+6. 课程 repo 只读。
 
-任一关键路径缺失时，先报告缺口并走降级路径，不要猜测。
+缺少 Unit 2 的真实证据、现有 Wiki 或足够的 Raw 时停止，不根据模板伪造完成状态。
 
-## 允许动作
+## 人与 Codex 的分工
 
-- 读取 Unit 2 个人产物、第二篇 Raw、本 Unit 模板和 `writing-great-skills`。
-- 读取 `materials/SKILL-CATALOG.md` 和 `materials/IMPORT-AND-SAVE.md`，需要扩展讲解时以这两份附录为准。
-- 创建缺失的个人 Skill 草稿目录。
-- 根据 [mini Skill 模板](templates/MINI-SKILL.md) 写 `SKILL.md`。
-- 手动调用草稿处理第二篇 Raw，并把知识产物写到个人 `Learn/Wiki/<第二主题>/`。
-- 根据 [试用报告模板](templates/TRIAL-REPORT.md) 写 `TRIAL-REPORT.md`。
-- 根据人的检查意见收紧触发条件、步骤、完成标准和禁止动作。
+人负责：
 
-## 执行顺序
+- 选择 4–5 篇值得保留的 Raw；
+- 指出 Unit 2 中真正有用或需要纠正的地方；
+- 检查 Skill 的范围和停止条件；
+- 决定试编结果是否接受；
+- 明确说“确认启用”；
+- 抽查批量结果。
 
-1. 从 Unit 2 产物中提取真实重复步骤，排除只属于第一篇文章的事实和表述。
-2. 读取 `writing-great-skills`，决定本草稿采用手动调用；保留 `disable-model-invocation: true`。
-3. 写 `SKILL.md`，确保每一步都有可检查的完成条件，信息只保留一个事实源。
-4. 检查 Skill 不会自动安装、改写 Raw、写出个人目录、提交、推送、删除或发消息。
-5. 用第二篇 Raw 手动调用草稿；记录实际输入、写入文件和人工确认点。
-6. 请人核对至少一条来源，并说明哪一步清楚、哪一步含糊、哪一步可能越权或编造。
-7. 写 `TRIAL-REPORT.md`，再根据反馈修订 `SKILL.md`。
-8. 请人明确选择“暂不安装”或“确认另行安装”，并把决定写入报告。
-9. 最终只报告绝对路径、试用结果、修改点和安装决定。
+Codex 负责：
 
-## 禁止动作
+- 从真实文件和 Log 提取稳定流程；
+- 使用 `writing-great-skills` 和 `skill-creator` 起草并检查 Skill；
+- 按当前阶段处理文件、重读结果并汇报；
+- 根据人工反馈修订；
+- 逐篇记录批量执行结果。
 
-- 不把 Unit 2 的一次性内容直接复制成通用规则。
-- 不在缺少 Unit 2 产物时凭空设计流程。
-- 不自动安装草稿，不写入 `~/.codex/skills/`；即使人确认安装，也要另起明确的安装动作。
-- 不自动导入或执行外部 Skill、脚本、命令或配置。
-- 不把“在 X、AI Hot 或 GitHub 看见”当作安全、质量或安装依据。
-- 不覆盖已有同名 Skill；先展示冲突并请人决定。
-- 不把个人 Skill 正文、Raw、学习卡、试用内容或状态摘要写入课程 repo。
-- 不提交、不推送、不删除文件，不发外部消息。
+Codex 不得替人选择文章、宣布理解、默认同意启用或接受最终结果。
 
-## 输出
+## 阶段一：起草
 
-个人 Skill 草稿目录中必须有：
+读取并比较：
+
+- Unit 2 的简短提示词；
+- Agent 实际创建和更新的文件；
+- Wiki 的规则说明、Index 和 Log；
+- 人检查后提出的修正；
+- 修正后证明值得重复的步骤。
+
+删除第一篇文章的标题、观点、主题和具体页面名。保留稳定的触发条件、输入、Raw 只读、沿用已有 Wiki、来源、Index、Log、已有页面更新判断、人工检查、停止条件和禁止动作。
+
+使用课程 `templates/MINI-SKILL.md` 和 `templates/openai.yaml` 作为起点，但以 Unit 2 真实证据为准。输出：
 
 ```text
-<个人 Obsidian 知识库>/Learn/Agent 101/Skills/aihot-to-llm-wiki-card/SKILL.md
-<个人 Obsidian 知识库>/Learn/Agent 101/Skills/aihot-to-llm-wiki-card/TRIAL-REPORT.md
+<Vault>/Learn/Agent 101/Skills/compile-raw-to-wiki/SKILL.md
+<Vault>/Learn/Agent 101/Skills/compile-raw-to-wiki/agents/openai.yaml
 ```
 
-第二篇 Raw 的个人知识产物必须位于：
+要求：
+
+- 个人 Skill 只负责把 1–5 篇 Raw 编译进已经存在的 Wiki，不负责第一次搭建 Wiki。
+- `agents/openai.yaml` 设置 `allow_implicit_invocation: false`，由人显式调用。
+- 同名草稿已存在时先读取并报告差异，不直接覆盖。
+- 起草完成后停下，用人话解释边界，不处理新 Raw。
+
+## 阶段二：单篇试编
+
+只有收到试编 Raw 的绝对路径、来源和现有 Wiki 路径后才执行。
+
+1. 在当前 task 中明确读取个人 `SKILL.md` 草稿，不启用、不安装。
+2. 开始前复述只读、写入范围、预计检查项和停止条件。
+3. 处理 1 篇 Raw，沿用同一套 Wiki。
+4. 重读 Raw、Index、Log 和变化的知识页面。
+5. 停下，请人打开 Raw、Index 和一页知识内容并给出“保留 / 修改 / 不确定”。
+6. 收到反馈后只做必要修正，并更新 Wiki Log。
+7. 填写个人 `TRIAL-REPORT.md`。
+8. 再次使用 `writing-great-skills` 检查草稿；根据真实偏差修订，或明确记录为什么无需修改。
+9. 停下等待“确认启用”。
+
+文件生成不代表试编通过。人工判断没有出现时，只能报告“等待检查”。
+
+## 阶段三：显式启用
+
+只有人明确说“确认启用”后才执行。
+
+1. 验证个人正文目录内 `SKILL.md` 和 `agents/openai.yaml` 可读。
+2. 验证 `allow_implicit_invocation: false`。
+3. 检查 `~/.agents/skills/compile-raw-to-wiki`。
+4. 目标已存在时停止并报告，不覆盖、不删除。
+5. 目标不存在时，创建 `~/.agents/skills/`（如需要），再建立指向个人正文目录的符号链接。
+6. 使用 `readlink` 和文件读取确认链接解析到同一份 `SKILL.md`。
+7. 报告链接路径、目标路径和验证结果，要求人新开 Codex task。
+
+不把个人草稿复制成第二份正文；不使用 `skill-installer` 安装本地草稿。若新 task 未发现 Skill，先建议重启 Codex，不重复创建链接。
+
+## 阶段四：批量编译
+
+这一阶段应在新 Codex task 中由人明确调用 `$compile-raw-to-wiki`。
+
+1. 读取本合同和课程 `templates/BATCH-REPORT.md`，再确认可用 Skill 列表和实际 `SKILL.md` 路径。
+2. 接收剩余 3–4 篇 Raw 的有序列表和原文链接。
+3. 先逐篇检查正文、来源和路径；任一输入不合格时标记阻断，不猜测或替换。
+4. 按列表顺序逐篇完成，不并行写 Wiki。
+5. 每篇先读取现有规则、Index、Log 和相关知识，再决定新建或更新。
+6. 优先更新已有概念、实体或比较页面，避免近义重复和每篇一套结构。
+7. 每篇完成后记录创建、更新、复用、未创建及原因。
+8. 全部处理后重读 Index、Log、本次知识变化和所有 Raw 状态。
+9. 填写个人 `BATCH-REPORT.md`，逐篇给出 `完成 / 阻断`，不得用整批一句话代替。
+10. 停下等待人抽查两篇来源对应的知识内容、Index 和 Log。
+
+只要一篇仍是阻断状态，整批就不能报告为“全部编译完成”。
+
+## 永久禁止动作
+
+- 不改写、移动、覆盖、重命名或删除 Raw。
+- 不在没有现有 Wiki 时自动搭建第一套 Wiki。
+- 不建立平行 Wiki，不机械创建空 Concept、Entity 或 Comparison 页面。
+- 不把 Unit 2 的一次性文章内容写入通用 Skill。
+- 不自动启用，不覆盖同名 Skill，不把沉默当同意。
+- 不修改课程 repo，不 commit、不 push、不发消息、不执行与本单元无关的外部动作。
+
+## 最终输出
 
 ```text
-<个人 Obsidian 知识库>/Learn/Wiki/<第二主题>/
+<Vault>/Learn/Agent 101/Skills/compile-raw-to-wiki/SKILL.md
+<Vault>/Learn/Agent 101/Skills/compile-raw-to-wiki/agents/openai.yaml
+<Vault>/Learn/Agent 101/Skills/compile-raw-to-wiki/TRIAL-REPORT.md
+<Vault>/Learn/Agent 101/Skills/compile-raw-to-wiki/BATCH-REPORT.md
 ```
 
-最终报告只列：
+批量编译只更新已有：
 
 ```text
-Skill 草稿路径：
-试用报告路径：
-第二篇 Raw 路径：
-试用产物目录：
-来源核对项：
-修改点：
-安装决定：暂不安装 / 确认另行安装
+<Vault>/Learn/Wiki/
+```
+
+## 最终报告格式
+
+```text
+个人 Skill 正文：
+Codex Skill 链接：
+Unit 2 证据：
+试编 Raw 与结果：
+批量 Raw 总数：
+完成数：
+阻断数：
+Wiki 创建文件：
+Wiki 更新文件：
+复用的已有页面：
+Raw 前后检查：
+人的单篇检查：
+人的批量抽查：
 课程 repo：保持只读 / 需要检查
 ```
-
-## 人工检查
-
-完成前必须由人执行并回应：
-
-1. 说清这个 Skill 什么时候用、什么时候不用。
-2. 打开第二篇 Raw，核对试用产物中的至少一条事实。
-3. 指出至少一个含糊、重复、误触发、越权或编造风险，并确认修订结果。
-4. 确认所有个人产物都在个人目录，课程 repo 没有个人产物或状态副本。
-5. 明确记录是否另行安装；沉默或未决定都按不安装处理。
-
-## 降级路径
-
-- Unit 2 产物缺失：停止写 Skill，先补齐指定产物或让老师确认可接受的缺口。
-- `writing-great-skills` 不可读取：使用本 Unit 的 `MINI-SKILL.md` 做草稿，并在报告中注明尚未完成该参考检查。
-- 第二篇 Raw 不可用：改用老师提供的第二篇 Raw；若仍没有，只做结构审查并把试用标为未执行，不能宣称本单元完成。
-- 个人知识库路径未确认：停止写入，不得把 Skill 草稿放进课程 repo 代替。
-- 时间不足：用一篇较短的第二 Raw 做最小试用，保留来源、摘要、人工回答、来源核对和问题修改；不安装。

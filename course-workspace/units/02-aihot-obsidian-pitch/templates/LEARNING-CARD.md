@@ -1,5 +1,7 @@
 # 学习卡：<标题>
 
+> 当前 Unit 2 不再生成学习卡。现行入口是同目录的 `STUDENT.md` 和 `AGENT-TASK.md`：完成 Web Clipper Raw、Agent 编译、文件检查、必要修正和 Log 更新。本文件只保留早期方案背景。
+
 > 使用时让 Codex 把本模板生成到 `<个人 Obsidian 知识库>/Learn/Wiki/<主题>/LEARNING-CARD.md`。课程 Workspace 不保存个人学习卡副本。
 >
 > Codex 压缩或改写你的回答时，标为“按你的回答整理”；只有逐字保留时才能标为“原话”。

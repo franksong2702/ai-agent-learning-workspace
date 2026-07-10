@@ -8,9 +8,9 @@
 
 1. 学习 Workspace 的绝对路径，以及当前 Unit 的位置。
 2. 代码 repo 的绝对路径，默认应为 `~/Projects/ai-pet-demo/`。
-3. `node --version`、`npm --version`、`git status --short --branch` 和 `git remote -v` 的结果；`origin` 应指向本人的 fork，`upstream` 应指向 `franksong2702/ai-pet-demo`。
+3. `node --version`、`npm --version`、`git status --short --branch` 和 `git remote -v` 的结果；Node.js 必须为 20+，`origin` 应指向本人的 fork，`upstream` 应指向 `franksong2702/ai-pet-demo`。
 4. 两个人分别准备修改的目标和文件范围；若范围冲突，先重新划分。
-5. `.env.local` 是否存在且被 Git 忽略。不要读取、显示或记录其中的 key。
+5. `.env.local` 是否存在且被 Git 忽略；`COMPANION_LOG_DIR` 是否指向个人 Obsidian `Learn/Agent 101/Unit 4/Logs/`。不要读取、显示或记录其中的 key。
 6. 老师是否已明确允许当前 Git 动作；未确认时只做本地修改和验证。
 7. 个人验证报告的唯一写入路径是否为 `<个人 Obsidian 知识库>/Learn/Agent 101/Unit 4/VALIDATION-REPORT.md`。
 
@@ -31,11 +31,11 @@
 ## 执行顺序
 
 1. 在代码 repo 运行 `npm install` 和 `npm run check`，记录基线结果。
-2. 启动前先检查默认端口是否已被占用；已占用时不停止现有进程，使用明确的空闲端口启动 `npm run dev`，并告诉人准确网址。让人打开页面、切换皮肤并发送一次 mock 消息。
-3. 根据 `templates/COLLABORATION-PLAN.md` 确认两个人的目标、文件边界和合并检查方式。
+2. 启动前先检查默认端口是否已被占用；已占用时不停止现有进程，使用 `COMPANION_PORT=<空闲端口> npm run dev`，并告诉人准确网址。让人打开页面、切换皮肤并发送一次 mock 消息。
+3. `git fetch upstream` 后确认 `upstream/class/2026-07` 存在；根据 `templates/COLLABORATION-PLAN.md` 确认两个人的目标、文件边界和合并检查方式。
 4. 每次只实现一个小目标。改动前列出文件，改动后立即运行相关检查。
 5. 用 `templates/HUMAN-AI-DESIGN.md` 记录一条情感表达、一条不确定性表达、一条能力边界和一个人工控制点。
-6. 确认 `.env.local` 被忽略后，请人自己填入老师提供的 key；不要要求把 key 粘贴到对话。
+6. 确认 `.env.local` 被忽略后，请人自己填入老师提供的 key，并设置个人 `COMPANION_LOG_DIR`；不要要求把 key 粘贴到对话。
 7. 重启服务，检查 `/api/health` 中 provider 为 `deepseek` 且 model 可见。
 8. 让人在网页发送一条新的短消息，确认页面出现真实模型回复。
 9. 再运行 `npm run check`，并按 `templates/VALIDATION-REPORT.md` 记录命令、返回结果和页面证据。
@@ -45,8 +45,9 @@
 
 - 修改前先运行 `git status --short --branch`，不要覆盖他人的未提交改动。
 - 公开 repo 只保证可读。先由人在 GitHub 网页创建个人 fork，再由 Codex clone 个人 fork；老师 repo 只作为 `upstream`。
+- 本次课程的唯一组合分支是 `upstream/class/2026-07`。每个工作 branch 都从它建立，Pull Request 也以它为目标；不得把课堂改动提交到老师 repo 的 `main`。
 - 两个人优先选择不同文件或清楚分离的组件。
-- 两个人各自在个人 fork 使用小分支，并向老师 repo 提交 Pull Request；由老师记录合并顺序。第二个合并前先从 `upstream/main` 更新并重新运行检查。
+- 两个人各自在个人 fork 使用小分支，并向老师 repo 的 `class/2026-07` 提交 Pull Request；由老师记录合并顺序。第二个合并前先从最新 `upstream/class/2026-07` 更新并重新运行检查。
 - 同一文件发生冲突时停止并让两个人决定，不自动覆盖任一边。
 - branch、commit、push、Pull Request 都要先说明影响，并等待老师针对当前动作确认；只向个人 fork push，不向老师 repo 直接 push。
 - 真实 GitHub 协作完成时，记录 branch、commit SHA、Pull Request 链接和另一人的 review 结论；缺少任一项时，只能报告本地协作进度。
@@ -83,6 +84,8 @@
 可见改动：
 Git 状态：
 branch / commit SHA / Pull Request / review：
+课堂组合 branch：class/2026-07
+main 是否保持干净：
 npm run check：
 页面地址：
 DeepSeek provider / model：

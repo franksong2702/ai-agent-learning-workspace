@@ -27,19 +27,25 @@ course-workspace/units/01-agent-behavior-guide/materials/KARPATHY-LLM-WIKI-ZH.md
 course-workspace/units/01-agent-behavior-guide/templates/KARPATHY-LEARNING-NOTE.md
 course-workspace/units/02-aihot-obsidian-pitch/STUDENT.md
 course-workspace/units/02-aihot-obsidian-pitch/AGENT-TASK.md
-course-workspace/units/02-aihot-obsidian-pitch/templates/COMPILATION-RULES.md
-course-workspace/units/02-aihot-obsidian-pitch/templates/LEARNING-CARD.md
-course-workspace/units/02-aihot-obsidian-pitch/templates/PITCH.md
+course-workspace/units/02-aihot-obsidian-pitch/SLIDES.md
+course-workspace/units/02-aihot-obsidian-pitch/SLIDES.html
 course-workspace/units/02-aihot-obsidian-pitch/materials/WEB-CLIPPER-SETUP.md
 course-workspace/units/02-aihot-obsidian-pitch/materials/ARTICLE-CANDIDATES.md
 course-workspace/units/03-llm-wiki-skill-lab/STUDENT.md
 course-workspace/units/03-llm-wiki-skill-lab/AGENT-TASK.md
+course-workspace/units/03-llm-wiki-skill-lab/SLIDES.md
+course-workspace/units/03-llm-wiki-skill-lab/SLIDES.html
 course-workspace/units/03-llm-wiki-skill-lab/templates/MINI-SKILL.md
 course-workspace/units/03-llm-wiki-skill-lab/templates/TRIAL-REPORT.md
+course-workspace/units/03-llm-wiki-skill-lab/templates/BATCH-REPORT.md
+course-workspace/units/03-llm-wiki-skill-lab/templates/openai.yaml
 course-workspace/units/03-llm-wiki-skill-lab/materials/SKILL-CATALOG.md
 course-workspace/units/03-llm-wiki-skill-lab/materials/IMPORT-AND-SAVE.md
 course-workspace/units/04-web-pet-demo/STUDENT.md
 course-workspace/units/04-web-pet-demo/AGENT-TASK.md
+course-workspace/units/04-web-pet-demo/SLIDES.md
+course-workspace/units/04-web-pet-demo/SLIDES.html
+course-workspace/units/04-web-pet-demo/assets/demo-mock.png
 course-workspace/units/04-web-pet-demo/templates/COLLABORATION-PLAN.md
 course-workspace/units/04-web-pet-demo/templates/HUMAN-AI-DESIGN.md
 course-workspace/units/04-web-pet-demo/templates/VALIDATION-REPORT.md
@@ -119,6 +125,137 @@ fi
 
 if ! grep -Fq 'DeepSeek 真实文本往返' "$repo/course-workspace/units/04-web-pet-demo/STUDENT.md"; then
   echo "Unit 4 missing real DeepSeek completion gate"
+  ok=0
+fi
+
+unit4_student="$repo/course-workspace/units/04-web-pet-demo/STUDENT.md"
+unit4_agent="$repo/course-workspace/units/04-web-pet-demo/AGENT-TASK.md"
+unit4_collab="$repo/course-workspace/units/04-web-pet-demo/templates/COLLABORATION-PLAN.md"
+unit4_validation="$repo/course-workspace/units/04-web-pet-demo/templates/VALIDATION-REPORT.md"
+unit4_slides="$repo/course-workspace/units/04-web-pet-demo/SLIDES.md"
+
+if ! grep -Fq 'https://github.com/franksong2702/ai-pet-demo' "$unit4_student" || \
+   ! grep -Fq 'Node.js 20 或更高版本' "$unit4_student" || \
+   ! grep -Fq 'COMPANION_PORT=<空闲端口>' "$unit4_student"; then
+  echo "Unit 4 missing code repo link, Node 20, or alternate port contract"
+  ok=0
+fi
+
+for file in "$unit4_student" "$unit4_agent" "$unit4_collab" "$unit4_validation"; do
+  if ! grep -Fq 'class/2026-07' "$file"; then
+    echo "Unit 4 missing classroom integration branch: $file"
+    ok=0
+  fi
+done
+
+if grep -F 'upstream/main' "$unit4_student" "$unit4_agent" "$unit4_collab" "$unit4_validation" >/dev/null 2>&1; then
+  echo "Unit 4 must not send classroom Pull Requests to main"
+  ok=0
+fi
+
+if ! grep -Fq 'COMPANION_LOG_DIR' "$unit4_student" || \
+   ! grep -Fq 'Logs/' "$unit4_student"; then
+  echo "Unit 4 missing personal Obsidian log path"
+  ok=0
+fi
+
+for concept in '这次不是从零写网站' '三个位置承担不同工作' 'Vibe Coding 不是让 AI 随便写' 'API 是一次可以看见的往返' '合作成果进入课堂 branch' '完成必须有四类证据'; do
+  if ! grep -Fq "$concept" "$unit4_slides"; then
+    echo "Unit 4 Slides missing core idea: $concept"
+    ok=0
+  fi
+done
+
+unit2_student="$repo/course-workspace/units/02-aihot-obsidian-pitch/STUDENT.md"
+unit2_agent="$repo/course-workspace/units/02-aihot-obsidian-pitch/AGENT-TASK.md"
+unit2_clipper="$repo/course-workspace/units/02-aihot-obsidian-pitch/materials/WEB-CLIPPER-SETUP.md"
+unit2_slides="$repo/course-workspace/units/02-aihot-obsidian-pitch/SLIDES.md"
+
+if ! grep -Fq '硬前置：Web Clipper 已经准备好' "$unit2_student" || \
+   ! grep -Fq 'Note location | `Inbox/Raw`' "$unit2_clipper" || \
+   ! grep -Fq '任一项没有真实证据' "$unit2_clipper"; then
+  echo "Unit 2 missing the Web Clipper prerequisite gate"
+  ok=0
+fi
+
+if ! grep -Fq 'KARPATHY-LLM-WIKI-EN.md' "$unit2_student" || \
+   ! grep -Fq '把 Karpathy 文章当作方法参考' "$unit2_student" || \
+   ! grep -Fq '不要让我先设计 Schema' "$unit2_student"; then
+  echo "Unit 2 missing the method-reference-driven compile prompt"
+  ok=0
+fi
+
+if ! grep -Fq '最小结果必须承担四种职责' "$unit2_agent" || \
+   ! grep -Fq '规则说明、索引、日志和来源知识页' "$unit2_agent" || \
+   ! grep -Fq '人亲自打开三个文件' "$unit2_student"; then
+  echo "Unit 2 missing minimum Wiki outputs or human check"
+  ok=0
+fi
+
+if ! grep -Fq '本单元没有设计 Skill、生成学习卡或 Pitch' "$unit2_student" || \
+   ! grep -Fq '不使用旧编译规则、学习卡或 Pitch 模板' "$unit2_agent"; then
+  echo "Unit 2 missing the simplified scope boundary"
+  ok=0
+fi
+
+for concept in 'Web Clipper 是硬前置' 'Agent 负责设计和执行' '最小 Wiki 只要求四种职责' '一次修正让闭环完整' '下一单元才把方法写成 Skill'; do
+  if ! grep -Fq "$concept" "$unit2_slides"; then
+    echo "Unit 2 Slides missing core idea: $concept"
+    ok=0
+  fi
+done
+
+unit3_student="$repo/course-workspace/units/03-llm-wiki-skill-lab/STUDENT.md"
+unit3_agent="$repo/course-workspace/units/03-llm-wiki-skill-lab/AGENT-TASK.md"
+unit3_template="$repo/course-workspace/units/03-llm-wiki-skill-lab/templates/MINI-SKILL.md"
+unit3_batch="$repo/course-workspace/units/03-llm-wiki-skill-lab/templates/BATCH-REPORT.md"
+unit3_openai="$repo/course-workspace/units/03-llm-wiki-skill-lab/templates/openai.yaml"
+unit3_slides="$repo/course-workspace/units/03-llm-wiki-skill-lab/SLIDES.md"
+
+if ! grep -Fq 'compile-raw-to-wiki' "$unit3_student" || \
+   ! grep -Fq '从 Unit 2 的真实结果写出个人 Skill 草稿' "$unit3_student" || \
+   ! grep -Fq '先生成个人草稿，再试编 1 篇 Raw' "$unit3_agent" || \
+   ! grep -Fq 'name: compile-raw-to-wiki' "$unit3_template"; then
+  echo "Unit 3 missing the Unit 2 evidence to Skill bridge"
+  ok=0
+fi
+
+unit3_draft="$(grep -n -m1 -F '## 第一阶段：从真实经历写出草稿' "$unit3_student" | cut -d: -f1 || true)"
+unit3_trial="$(grep -n -m1 -F '## 第二阶段：先用 1 篇 Raw 试编' "$unit3_student" | cut -d: -f1 || true)"
+unit3_enable="$(grep -n -m1 -F '## 第三阶段：显式启用个人 Skill' "$unit3_student" | cut -d: -f1 || true)"
+unit3_batch_stage="$(grep -n -m1 -F '## 第四阶段：新 task 编译剩余 3–4 篇' "$unit3_student" | cut -d: -f1 || true)"
+unit3_slides_last="$(grep -n -m1 -F '完成实操后，再打开' "$unit3_student" | cut -d: -f1 || true)"
+if [ -z "$unit3_draft" ] || [ -z "$unit3_trial" ] || [ -z "$unit3_enable" ] || \
+   [ -z "$unit3_batch_stage" ] || [ -z "$unit3_slides_last" ] || \
+   [ "$unit3_draft" -ge "$unit3_trial" ] || [ "$unit3_trial" -ge "$unit3_enable" ] || \
+   [ "$unit3_enable" -ge "$unit3_batch_stage" ] || [ "$unit3_batch_stage" -ge "$unit3_slides_last" ]; then
+  echo "Unit 3 must run draft -> one Raw trial -> enable -> 3-4 Raw batch -> Slides"
+  ok=0
+fi
+
+unit3_prompt_blocks="$(grep -c '^```text$' "$unit3_student" || true)"
+if [ "$unit3_prompt_blocks" -ne 6 ]; then
+  echo "Unit 3 human page must contain six text blocks including four copyable stage prompts: $unit3_prompt_blocks"
+  ok=0
+fi
+
+if ! grep -Fq '不负责第一次搭建 Wiki' "$unit3_template" || \
+   grep -Fq '没有 Wiki 时才建立' "$unit3_template" || \
+   ! grep -Fq 'allow_implicit_invocation: false' "$unit3_openai" || \
+   ! grep -Fq '状态：完成 / 阻断' "$unit3_batch"; then
+  echo "Unit 3 Skill boundary, explicit policy, or batch ledger is missing"
+  ok=0
+fi
+
+for concept in 'Skill 是保存下来的工作方法' '靠谱，不等于每次输出一样' '官方和标准入口' 'GitHub 上值得研究的 repo' 'AI Hot：高效率发现线索' 'X 上可以从这些账号开始'; do
+  if ! grep -Fq "$concept" "$unit3_slides"; then
+    echo "Unit 3 Slides missing core idea: $concept"
+    ok=0
+  fi
+done
+
+if grep -E '第一阶段|第二阶段|第三阶段|第四阶段|一键复制|请开始 Unit 3' "$unit3_slides" >/dev/null 2>&1; then
+  echo "Unit 3 Slides must remain an after-practice concept and discovery deck"
   ok=0
 fi
 

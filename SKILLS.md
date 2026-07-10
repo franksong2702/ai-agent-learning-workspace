@@ -11,8 +11,8 @@ Skill 在这门课里有两个作用：先作为 Codex 的现成能力使用，�
 | `teach` | Unit 0 | 在概念听不懂时，把材料讲到你能复述 | [Matt Pocock / teach](https://github.com/mattpocock/skills/tree/main/skills/productivity/teach)，需要安装 |
 | `aihot` | Unit 0 | 从 AI Hot 查询资讯，再追到原始来源 | [AI Hot 官方 Skill](https://aihot.virxact.com/aihot-skill/)，需要安装 |
 | `writing-great-skills` | Unit 3 | 检查 Skill 的触发、结构、边界和完成标准 | [Matt Pocock / writing-great-skills](https://github.com/mattpocock/skills/tree/main/skills/productivity/writing-great-skills)，需要安装 |
-| `skill-installer` | Unit 0 使用，Unit 3 解释 | 从指定 GitHub 来源安装 Skill | [OpenAI / skill-installer](https://github.com/openai/skills/tree/main/skills/.system/skill-installer)，Codex 自带 |
-| `skill-creator` | Unit 3 | 新建、整理并检查自己的 Skill | [OpenAI / skill-creator](https://github.com/openai/skills/tree/main/skills/.system/skill-creator)，Codex 自带 |
+| `skill-installer` | Unit 0 使用，Unit 3 解释 | 从指定 GitHub 来源安装外部 Skill | [Codex Build Skills](https://learn.chatgpt.com/docs/build-skills)，Codex 自带 |
+| `skill-creator` | Unit 3 | 新建、整理并检查自己的 Skill | [Codex Build Skills](https://learn.chatgpt.com/docs/build-skills)，Codex 自带 |
 | `diagnosing-bugs` | Unit 4 | 网页出错时先复现和定位，再修改 | [Matt Pocock / diagnosing-bugs](https://github.com/mattpocock/skills/tree/main/skills/engineering/diagnosing-bugs)，需要安装 |
 | `playwright-cli` | Unit 4 | 让 Codex 在真实浏览器里检查页面和交互 | [Microsoft / playwright-cli](https://github.com/microsoft/playwright-cli/tree/main/skills/playwright-cli)，需要安装 |
 | `grill-me` | Unit 5 | 用逐个追问把模糊想法整理成清楚的工作说明 | [Matt Pocock / grill-me](https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me)，需要同时安装 `grilling` 依赖 |
@@ -25,8 +25,8 @@ Skill 在这门课里有两个作用：先作为 Codex 的现成能力使用，�
 | --- | --- | --- | --- |
 | Unit 0 | 安装并验证 `teach`、`aihot` | 确认来源、允许安装、核对结果 | 检查现有安装、安装缺失项、报告路径 |
 | Unit 1 | 正式使用 `teach` 阅读指定原文 | 哪个概念没有真正听懂，怎样继续追问，能否用自己的话复述 | 根据原文互动解释、换例子并检查理解，不替人宣布学会 |
-| Unit 2 | 使用 `aihot` 找线索，按需使用 `teach` | 选择哪篇原文、哪些结论可信、自己怎样理解 | 查询资讯、辅助理解，不替人完成判断 |
-| Unit 3 | 使用 `writing-great-skills`、`skill-creator`、`skill-installer` | 哪些步骤值得重复、Skill 何时不该触发、是否安装草稿 | 检查结构、创建草稿、在人明确同意后安装 |
+| Unit 2 | 可用 `aihot` 找文章来源；不使用预制编译 Skill | 确认 Web Clipper Raw、检查 Agent 设计和 Wiki 文件 | 阅读 Karpathy 方法，自行设计并执行最小 Wiki 编译 |
+| Unit 3 | 使用 `writing-great-skills`、`skill-creator`；扩展了解 `skill-installer` | Unit 2 哪些步骤值得重复、何时停止、试编结果是否可接受、是否显式启用 | 从真实运行创建草稿，先试编 1 篇，再用同一 Skill 编译剩余 3–4 篇 Raw |
 | Unit 4 | 使用 `diagnosing-bugs`、`playwright-cli` | 现象是否真实、页面是否符合预期、修复是否可接受 | 复现问题、修改代码、运行测试和浏览器检查 |
 | Unit 5 | 使用 `grill-me` | 逐个回答问题，纠正 Codex 的理解，确认最小范围 | 追问并整理工作说明，不替人选择目标 |
 
@@ -43,6 +43,7 @@ Skill 不一定会自己启动。课程中使用下面的自然语言即可；�
 | `writing-great-skills` | “请使用 writing-great-skills 检查这份 Skill 草稿。” |
 | `skill-installer` | “请使用 skill-installer 从这个固定 GitHub 路径安装，不要搜索同名替代品。” |
 | `skill-creator` | “请使用 skill-creator 建立并检查这份 mini Skill。” |
+| `compile-raw-to-wiki` | “请明确使用 $compile-raw-to-wiki，把这几篇 Raw 逐篇编译进我已有的同一套 Wiki。” |
 | `diagnosing-bugs` | “请使用 diagnosing-bugs，先复现和定位这个错误，不要直接猜原因。” |
 | `playwright-cli` | “请使用 playwright-cli 在真实浏览器中检查这个页面，并报告证据。” |
 | `grill-me` | “请使用 grill-me，一次问我一个问题，把这个模糊想法整理清楚。” |
@@ -71,7 +72,7 @@ aihot
 ```text
 请先读取课程 repo 根目录的 SKILLS.md，只准备 Unit 3 需要的 Skill。
 
-1. 检查 Codex 自带的 skill-installer 和 skill-creator 是否可用，不要重复安装它们。
+1. 检查 Codex 自带的 skill-installer 和 skill-creator 是否可用，不要重复安装它们；skill-installer 只用于固定 GitHub 来源，不用于启用本地草稿。
 2. 从下面的固定来源安装 writing-great-skills：
    https://github.com/mattpocock/skills/tree/main/skills/productivity/writing-great-skills
 3. 如果同名目录已经存在，不要覆盖；先报告现有路径和冲突。
@@ -81,7 +82,7 @@ aihot
 最后报告：每项是“Codex 自带 / 已存在 / 本次安装 / 需要协助”，以及实际本地路径。
 ```
 
-安装完成后新开 Codex task，再进入 Unit 3。
+安装完成后新开 Codex task，再进入 Unit 3。Unit 3 写出的个人 Skill 以 Obsidian 中的目录为唯一正文，试编通过并得到明确同意后，再链接到 `~/.agents/skills/`。
 
 ### Unit 4：网页开发前准备
 
@@ -90,7 +91,7 @@ aihot
 ```text
 请先读取课程 repo 根目录的 SKILLS.md，只准备 Unit 4 需要的工具。
 
-1. 检查 Node.js 是否为 18 或更高版本；不满足时报告版本并停下。
+1. 检查 Node.js 是否为 20 或更高版本；不满足时报告版本并停下。
 2. 从固定来源安装 diagnosing-bugs：
    https://github.com/mattpocock/skills/tree/main/skills/engineering/diagnosing-bugs
 3. 从固定来源安装 playwright-cli Skill：
@@ -99,7 +100,7 @@ aihot
 5. 运行 playwright-cli --help 验证命令可用。
 6. 如果同名目录已经存在，不要覆盖。不要修改课程 repo，不要 commit 或 push。
 
-最后报告：Node.js 版本、两个 Skill 的实际路径、playwright-cli --help 的返回结果，以及需要协助的事项。
+最后报告：Node.js 版本、两个 Skill 的实际路径、playwright-cli --help 的返回结果，以及需要协助的事项。不要修改或停止已有端口进程；Unit 4 使用 `COMPANION_PORT=<空闲端口>` 选择其他端口。
 ```
 
 安装完成后新开 Codex task，再进入 Unit 4。

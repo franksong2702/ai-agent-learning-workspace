@@ -1,5 +1,7 @@
 # LLM Wiki 编译规则模板
 
+> 当前 Unit 2 不再使用本模板。现行入口是同目录的 `STUDENT.md` 和 `AGENT-TASK.md`：Agent 直接读取 Karpathy 方法材料并自行设计最小 Wiki。本文件只保留早期方案背景，不要生成个人副本。
+
 > 本模板保存在课程 Workspace。使用时让 Codex 在 `<个人 Obsidian 知识库>/Learn/Wiki/<主题>/COMPILATION-RULES.md` 生成个人版本，不要在此文件填写个人内容。
 
 ## 本次目标

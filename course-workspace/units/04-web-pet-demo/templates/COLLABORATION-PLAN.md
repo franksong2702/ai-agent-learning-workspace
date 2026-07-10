@@ -4,11 +4,16 @@
 
 网页上最后要看到什么变化：
 
+- 课堂组合 branch：`class/2026-07`
+- 组合 branch 起始 SHA：
+- 老师 repo `main` 是否保持不变：
+
 ## 修改范围 A
 
 - 负责人：
 - 本地代码 repo 绝对路径：
 - branch：
+- branch 是否从 `upstream/class/2026-07` 建立：
 - 负责的目标：
 - 预计修改的文件：
 - 不会触碰的文件：
@@ -19,6 +24,7 @@
 - 负责人：
 - 本地代码 repo 绝对路径：
 - branch：
+- branch 是否从 `upstream/class/2026-07` 建立：
 - 负责的目标：
 - 预计修改的文件：
 - 不会触碰的文件：
@@ -33,6 +39,7 @@
 ## 合并顺序
 
 - 先合并哪个 Pull Request：
+- 两个 Pull Request 的目标 branch 是否均为 `class/2026-07`：
 - 谁检查第一个合并结果：
 - 第二个范围怎样更新到最新主分支：
 - 出现同文件冲突时由谁一起决定：双方
@@ -46,5 +53,6 @@
 - 尚未获准的动作：
 - commit SHA：
 - Pull Request 链接：
+- Pull Request 目标 branch：
 - 协作方的 review 结论：
 - 协作状态：本地练习 / GitHub 协作已完成

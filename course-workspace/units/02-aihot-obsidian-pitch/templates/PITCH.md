@@ -1,5 +1,7 @@
 # Pitch：<标题>
 
+> 当前 Unit 2 不再生成 Pitch。现行入口是同目录的 `STUDENT.md` 和 `AGENT-TASK.md`；本文件只保留早期方案背景，不属于当前完成标准。
+
 > 使用时让 Codex 把本模板生成到 `<个人 Obsidian 知识库>/Learn/Wiki/<主题>/PITCH.md`。正文要改成自己会说的话。
 
 ## 听的人

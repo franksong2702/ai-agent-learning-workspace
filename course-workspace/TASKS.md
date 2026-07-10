@@ -8,12 +8,12 @@
 | --- | --- | --- | --- | --- |
 | P-001 | 完成并批准邀请前课前确认清单 | 老师 | 已完成 | 单一外发清单和三个概念解释附录获老师批准 |
 | P-002 | 完成受邀后安装与确认入口 | 老师的 Codex | 已完成 | `pre-lite-workspace/` 路径、提示词和结构检查存在 |
-| W-001 | 收口 private 学习 repo 公共入口和共享状态 | 老师的 Codex | 本地已验证 | 根入口、CURRENT、TASKS、ROLES、JOIN 通过结构与入口审查 |
-| W-002 | 准备 Unit 0-5 双层课程材料 | 老师的 Codex | 本地已验证 | Unit 0-5、关键模板和相对链接通过检查 |
-| C-001 | 创建独立 `ai-pet-demo` 本地代码 repo | 老师的 Codex | 本地已验证 | 中文页面、mock、DeepSeek adapter、7 项测试和浏览器证据存在 |
-| C-002 | 对齐 Unit 4 与 `ai-pet-demo` | 老师的 Codex | 本地已验证 | 学习 repo 与代码 repo 的人读说明、Codex 指令和验证合同一致 |
-| V-001 | 执行零基础视角验证 | 老师的 Codex | 本地审查完成 | 验证报告明确列出已验证范围与发布、真实 API、真实课堂阻塞 |
-| G-001 | 发布两个 repo | 老师 | 等待授权 | 用户明确授权后才 commit / push 或创建 GitHub remote |
+| W-001 | 收口 private 学习 repo 公共入口和共享状态 | 老师的 Codex | 已发布并验证 | 根入口、CURRENT、TASKS、ROLES、JOIN 在干净 clone 中通过结构与入口审查 |
+| W-002 | 准备 Unit 0-5 双层课程材料 | 老师的 Codex | 已发布并验证 | Unit 0-5、关键模板和相对链接在 `origin/main` 的干净 clone 中通过检查 |
+| C-001 | 创建独立 `ai-pet-demo` 代码 repo | 老师的 Codex | 已发布并验证 | private repo 可干净 clone；中文页面、mock、DeepSeek adapter、7 项测试和浏览器证据存在 |
+| C-002 | 对齐 Unit 4 与 `ai-pet-demo` | 老师的 Codex | 已发布并验证 | 两个 repo 的人读说明、Codex 指令和验证合同一致 |
+| V-001 | 执行零基础视角验证 | 老师的 Codex | 发布验收完成 | 验证报告区分双仓发布证据与邀请、真实 API、真实课堂门槛 |
+| G-001 | 私有发布两个 repo | 老师和老师的 Codex | 已完成 | 两个 repo 均为 private、默认分支为 `main`，并完成干净 clone 验收 |
 
 ## 课堂进度
 

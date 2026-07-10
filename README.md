@@ -50,4 +50,4 @@ My Obsidian Vault/
 
 ## 当前状态
 
-本地结构已经建立，private GitHub remote 已创建；首次发布、学生邀请和真实 Agent 加入尚未完成。
+Private GitHub repo 已发布，并通过全新 clone 的结构检查；学生邀请和真实 Agent 加入尚未完成。

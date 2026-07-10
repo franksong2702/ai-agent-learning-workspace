@@ -12,7 +12,7 @@
 
 | Agent | Represents | Runtime | Mode | Backend access | Last proof |
 | --- | --- | --- | --- | --- | --- |
-| 讲师 Agent | 讲师 | Codex | write-enabled-local | private GitHub remote configured | 2026-07-10 local structure check exit 0 |
+| 讲师 Agent | 讲师 | Codex | write-enabled | private GitHub push verified | 2026-07-10 bootstrap `2740f65` + clean clone check |
 | 乐乐 Agent | 乐乐 | unknown | not-joined | none | pending |
 | 宋乐涵 Agent | 宋乐涵 | unknown | not-joined | none | pending |
 

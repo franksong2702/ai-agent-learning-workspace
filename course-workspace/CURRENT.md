@@ -8,7 +8,7 @@ Last updated: 2026-07-10
 
 ## 当前目标
 
-1. 完成 private GitHub repo 的首次 commit、push 和干净 clone 验证。
+1. 邀请乐乐和宋乐涵进入 private GitHub repo。
 2. 让乐乐和宋乐涵完成课前绿 / 黄 / 红检查。
 3. 让讲师 Agent、乐乐 Agent、宋乐涵 Agent 依次加入。
 4. 确认所有人能找到当前任务和自己的输出目录。
@@ -20,7 +20,8 @@ Last updated: 2026-07-10
 - 课前准备包位于 `pre-lite-workspace/`。
 - 课堂共享状态位于 `course-workspace/`。
 - Private GitHub remote 已创建：`franksong2702/ai-agent-learning-workspace`。
-- 首次 commit、push 和干净 clone 尚未完成。
+- Bootstrap commit `2740f65` 已推送到 `main`。
+- 全新 clone 已运行 `sh scripts/check-workspace.sh`，返回 exit 0。
 - 学生 Agent 尚未加入。
 
 ## 当前阻塞
@@ -32,4 +33,4 @@ Last updated: 2026-07-10
 
 - 不能声称学生已经完成课前准备。
 - 不能声称三个 Agent 已经加入或获得写入权限。
-- 不能声称首次发布、干净 clone 或 GitHub 多人写回已经验证。
+- 不能声称学生邀请、学生 clone 或 GitHub 多人写回已经验证。

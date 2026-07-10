@@ -1,70 +1,42 @@
 ---
-type: pre-lite-start
+type: workspace-start
 project: AI Agent Learning Workspace
-status: active
+stage: after-github-invitation
 updated: 2026-07-10
-audience: students
+audience: learners
 ---
 
-# Agent 101 课前准备入口
+# Agent 101 课程 workspace
 
-你现在拿到的是课前准备 workspace。
+你会看到这个页面，说明已经接受 GitHub 邀请，并且可以打开课程 workspace。这里承接前面发出的课前确认清单：现在不再重复注册账号，而是把课程 workspace 正确放进 Obsidian。
 
-它不是作业，也不是考试。目标只有一个：提前发现账号、网络、电脑和工具问题，避免正式上课时间都花在安装和排障上。
+## 先判断你现在在哪里
 
-## 你要完成什么
+- **如果你在 GitHub 网页中打开这个页面**：课程文件还没有放进电脑。下一步把 [给 Codex 的 workspace 安装提示词](prompts/workspace-setup-prompt.md) 全文发给 Codex。
+- **如果你在 Obsidian 左侧文件列表中打开这个页面**：课程 workspace 已经放对位置，可以继续看下面的承接清单。
 
-请先打开 [课前确认清单](materials/day-minus-1-preflight-checklist.md)。
+## Codex 会做什么，你确认什么
 
-如果你要把路径发给 Agent，用这一行：
+邀请前准备好的 Obsidian Vault 是你的长期个人知识库，不是课程专用文件夹；新建时推荐位置是 `~/Obsidian/`。Codex 会在你的确认下：确认这个 Vault、建立缺失的课程文件夹、克隆课程 workspace、检查远程地址和关键文件。
 
-```text
-pre-lite-workspace/materials/day-minus-1-preflight-checklist.md
-```
+你只需要：确认使用哪一个 Vault、核对 Codex 报告的绝对路径，并在 Obsidian 左侧文件列表中看到课程入口。
 
-然后把每一项标成三类：
-
-- 绿色：已经确认可用。
-- 黄色：不确定，需要课堂上让老师看。
-- 红色：现在明确不可用。
-
-## 如果你已经有可用 Agent
-
-如果你已经能打开 Codex / Claude Code / Hermes，可以让 Agent 陪你检查。
-
-请把 [课前准备 Agent 提示词](prompts/preflight-agent-prompt.md) 复制给 Agent。
-
-如果你要把路径发给 Agent，用这一行：
+课程 workspace 的唯一位置是：
 
 ```text
-prompts/preflight-agent-prompt.md
+<你的个人 Obsidian 知识库>/Projects/AI Agent Learning Workspace/
 ```
 
-如果 Agent 能读本地文件，也可以告诉它这个 workspace 的路径，让它自己读取上面的 prompt 和 checklist。
+目录职责不要混淆：`Learn/Agent 101/` 只放自己的课程笔记、反思和 Skill 练习；上面的 `Projects/AI Agent Learning Workspace/` 才是 GitHub 课程 workspace。不要复制整份课程 repo 到 `Learn/Agent 101/`，个人笔记也不需要复制进课程 workspace。
 
-## 如果 Agent 还不能用
+不要从网页下载压缩包，也不要把课程文件放到桌面、下载文件夹或 `~/Projects/`。
 
-没有关系。
+## 安装完成后继续
 
-你先自己打开 checklist，把能确认的项目标出来。Agent 工具打不开这件事本身就标成红色或黄色，课堂上会一起处理。
+在 Obsidian 中打开 [已进入课程 workspace：下一步确认清单](materials/day-minus-1-preflight-checklist.md)。它会说明人要确认什么、Codex 可以执行什么，以及怎样把结果发给老师。
 
-## 交给老师的回复
+如果 Codex 已经完成安装，但还需要它检查路径和文件，可以把 [给 Codex 的 workspace 继续准备提示词](prompts/preflight-agent-prompt.md) 发给它。
 
-最后请按 [课前确认回复模板](templates/preflight-reply-template.md) 回复老师。
+最后按 [workspace 确认回复模板](templates/preflight-reply-template.md) 回复老师。
 
-如果你要把路径发给 Agent，用这一行：
-
-```text
-templates/preflight-reply-template.md
-```
-
-不要把密码、验证码、API key、付款信息发给老师或 Agent。
-
-## 你今天只需要做到
-
-- 能打开 checklist。
-- 能确认哪些项目可用、哪些不确定、哪些不可用。
-- 准备一篇你感兴趣的 AI 文章或链接。
-- 写一句你想让 Agent 帮你做什么。
-
-做不到全绿也没关系。红色和黄色就是我们明天要优先解决的问题。
+回复后停在这里，不要重新回到本页循环安装。老师确认三项结果后，会明确说“开始课堂”，并让你打开 [Unit 0：进入共享学习 Workspace](../course-workspace/units/00-workspace-entry/STUDENT.md)。没有收到这一步指令时，不自行进入后续 Unit。

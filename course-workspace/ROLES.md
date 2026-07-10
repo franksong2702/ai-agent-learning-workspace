@@ -1,24 +1,24 @@
 # 角色和权限
 
-## 人员角色
+## 人与 Codex
 
-| Person / role | Agent | Can decide | Can update | Must ask before |
+| 身份 | Codex | 可以决定 | 可以更新 | 必须先询问 |
 | --- | --- | --- | --- | --- |
-| 讲师 | 讲师 Agent | 课程顺序、课堂边界和共享权限 | `CURRENT.md`、`TASKS.md`、`DECISIONS.md`、课程公共材料 | 外部发布、邀请、删除、提交和推送 |
-| 乐乐 | 乐乐 Agent | 乐乐自己的兴趣、设计选择和个人输出 | `outputs/lele/`、自己的加入申请和提案 | 修改共享状态、他人输出、外部发布 |
-| 宋乐涵 | 宋乐涵 Agent | 宋乐涵自己的兴趣、学习选择和个人输出 | `outputs/song-lehan/`、自己的加入申请和提案 | 修改共享状态、他人输出、外部发布 |
+| 老师 | 老师的 Codex | 课程顺序、课堂边界和共享权限 | `CURRENT.md`、`TASKS.md`、`DECISIONS.md`、课程公共材料 | 外部发布、邀请、删除、commit 和 push |
+| 第一个人 | 第一个人的 Codex | 自己的兴趣、选择和课堂提交 | `outputs/person-1/`、自己的加入申请和提案 | 修改共享状态、另一人的提交、外部发布 |
+| 第二个人 | 第二个人的 Codex | 自己的兴趣、选择和课堂提交 | `outputs/person-2/`、自己的加入申请和提案 | 修改共享状态、另一人的提交、外部发布 |
 
-## Agent 状态
+## Codex 状态
 
-| Agent | Represents | Runtime | Mode | Backend access | Last proof |
+| Codex | 代表 | Runtime | Mode | Shared write | Last proof |
 | --- | --- | --- | --- | --- | --- |
-| 讲师 Agent | 讲师 | Codex | write-enabled | private GitHub push verified | 2026-07-10 bootstrap `2740f65` + clean clone check |
-| 乐乐 Agent | 乐乐 | unknown | not-joined | none | pending |
-| 宋乐涵 Agent | 宋乐涵 | unknown | not-joined | none | pending |
+| 老师的 Codex | 老师 | Codex | write-enabled | 本地课程准备 | 当前本地结构检查 |
+| 第一个人的 Codex | 第一个人 | Codex | not-joined | none | pending |
+| 第二个人的 Codex | 第二个人 | Codex | not-joined | none | pending |
 
 ## 通用规则
 
-- 个人偏好可以记录，不能自动升级成共同决定。
-- 影响另一位学生的变化先写提案。
-- 账号、凭据、付款和私人原因不写入共享 repo。
-- 只有讲师或明确授权者可以关闭课程项目或变更共享权限。
+- 个人偏好不能自动升级成共同决定。
+- 影响另一人的变化先写提案或询问。
+- 账号、凭据、付款信息和私人原因不写入共享 repo。
+- 只有老师或明确授权者可以改变共享权限、发布 repo 或关闭课程项目。

@@ -5,9 +5,9 @@
 建议文件名：
 
 ```text
-讲师-agent.md
-乐乐-agent.md
-宋乐涵-agent.md
+organizer-agent.md
+person-1-agent.md
+person-2-agent.md
 ```
 
-讲师确认后，在 `ROLES.md` 更新该 Agent 的模式和验证证据。
+老师确认后，在 `ROLES.md` 更新该 Codex 的模式和验证证据。

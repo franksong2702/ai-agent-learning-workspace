@@ -1,58 +1,43 @@
 ---
-type: agent-prompt
+type: codex-prompt
 project: AI Agent Learning Workspace
-status: active
+stage: after-github-invitation
 updated: 2026-07-10
-audience: agent
+audience: codex
 ---
 
-# 课前准备 Agent 提示词
+# 给 Codex 的 workspace 继续准备提示词
 
-请你陪我完成 Agent 101 课前一天确认清单。
+我已经接受 GitHub 邀请。请先判断课程 workspace 是否已经正确放进我的个人 Obsidian 知识库，再决定下一步；不要重复做账号注册或邀请前检查。
 
-请先读取或参考这份文件：
+请先读取：
 
 ```text
 pre-lite-workspace/materials/day-minus-1-preflight-checklist.md
 ```
 
-如果你不能直接读取文件，请让我把清单内容复制给你。
-
-你的任务不是替我做决定，也不是直接乱改我的电脑配置。
-
-请你按清单逐项带我检查，并把每一项记录成三类：
+课程 workspace 的唯一正确位置是：
 
 ```text
-绿色：已经确认可用
-黄色：我不确定，需要课堂上让老师看
-红色：现在明确不可用
+<个人 Obsidian 知识库>/Projects/AI Agent Learning Workspace/
 ```
 
-如果需要我运行命令，请一次只给一个命令，并告诉我要把哪几行结果贴回来。
+请按以下规则工作：
 
-如果涉及以下内容，请提醒我不要发给你，并让我先问老师：
+1. 先报告你看到的当前绝对路径，以及它是否符合上面的目录关系。
+2. 如果课程 workspace 还没有被克隆到该位置，不要猜测其他路径，也不要自行新建第二份。提醒我改用 `pre-lite-workspace/prompts/workspace-setup-prompt.md`，然后停下。
+3. 如果路径正确，检查 Vault 中是否有 `Inbox/`、`Learn/Wiki/`、`Learn/Agent 101/`、`Projects/`、`Work/`、`Diary/`；只创建缺失目录，不改动已有内容。`Learn/Agent 101/` 只放个人课程笔记，不复制课程 workspace。
+4. 检查课程 workspace 的远程地址和 `pre-lite-workspace/README.md`、`course-workspace/README.md` 是否存在。
+5. 不要提交、推送、删除、覆盖或改写课程内容。
 
-- 密码
-- 验证码
-- API key
-- 付款信息
-- 账号安全设置
+如果 GitHub、Git、路径或权限出现问题，请给出准确报错和下一步最小操作；不要向我索取密码、验证码、访问令牌、API key 或付款信息。
 
-最后请帮我整理一份可以发给老师的课前确认回复，格式如下：
+最后用下面格式告诉我结果：
 
 ```text
-姓名：
-
-绿色：已经确认可用的项目
+个人 Obsidian 知识库：<绝对路径>
+课程 workspace：<绝对路径或尚未安装>
+Obsidian 左侧文件列表：已找到课程入口 / 需要协助
+需要协助：
 -
-
-黄色：不确定，需要老师现场看一下的项目
--
-
-红色：现在明确不可用的项目
--
-
-我准备带到课堂的一篇文章 / 链接：
-
-我想让 Agent 帮我做的一个兴趣方向：
 ```

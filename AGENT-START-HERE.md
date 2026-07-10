@@ -1,37 +1,44 @@
-# Agent 从这里开始
+# Codex 从这里开始
 
-你正在进入一个由讲师、乐乐、宋乐涵和各自 Agent 共用的学习 Workspace。
+你正在进入老师和两位学习者共用的 Agent 101 Workspace。先判断当前文件是在 GitHub 网页中，还是已经在本地 Obsidian 中。
 
-## 先判断当前场景
+## 场景一：刚接受 GitHub 邀请
 
-### 课前准备
+依次读取：
 
-读取：
+1. `pre-lite-workspace/README.md`
+2. `pre-lite-workspace/prompts/workspace-setup-prompt.md`
 
-1. `pre-lite-workspace/START-HERE.md`
-2. `pre-lite-workspace/materials/day-minus-1-preflight-checklist.md`
-3. `pre-lite-workspace/prompts/preflight-agent-prompt.md`
+只有在对方确认个人 Obsidian 知识库路径后，才能建立缺失目录并 clone repo。不要重复注册账号，也不要把 repo 下载到桌面、下载文件夹或 `Learn/Agent 101/`。
 
-课前准备只做检查和汇总，不擅自修改电脑、网络、账号或安全设置。
+## 场景二：repo 已经安装到 Obsidian
 
-### 课堂学习
+依次读取：
 
-读取：
+1. `pre-lite-workspace/materials/day-minus-1-preflight-checklist.md`
+2. `pre-lite-workspace/prompts/preflight-agent-prompt.md`
+
+确认路径、remote 和关键文件后，等待人决定是否进入课堂。
+
+## 场景三：开始课堂
+
+依次读取：
 
 1. `course-workspace/AGENT-START-HERE.md`
 2. `course-workspace/JOIN.md`
 3. `course-workspace/ROLES.md`
 4. `course-workspace/CURRENT.md`
 5. `course-workspace/TASKS.md`
+6. 当前 Unit 的 `STUDENT.md` 和 `AGENT-TASK.md`
 
 ## 加入状态
 
-- `joined`：已经读完入口，并能说明自己代表谁。
-- `proposal-only`：可以写加入申请、提案和自己的输出草稿。
-- `write-enabled`：可以修改 `ROLES.md` 授权的共享文件。
-- `activated`：已经验证同步、写入、结构检查和交接链路。
+- `not-joined`：尚未提交加入申请。
+- `proposal-only`：只能写加入申请、提案和授权范围内的课堂提交。
+- `write-enabled`：可以修改 `ROLES.md` 明确授权的共享文件。
+- `activated`：真实同步、写入、检查和交接链路均已有证据。
 
-读到 repo 不等于已经获得写入权限。默认从 `proposal-only` 开始。
+读到 repo 不等于已经获得共享写入权限。默认从 `proposal-only` 开始。
 
 ## 冲突顺序
 

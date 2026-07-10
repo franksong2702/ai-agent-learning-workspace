@@ -46,3 +46,11 @@
 - 本 repo 完成 Unit 0-5 的课堂任务、Codex 指令和协作状态。
 - 独立 `ai-pet-demo` 保存网页、pet/skin、气泡、mock 与 DeepSeek adapter。
 - 现有 `agent101-companion-foundation` 只作为迁移来源，不在原 repo 中继续开发。
+
+## 2026-07-10 D009: 三个课程 Repo 改为公开访问
+
+- `ai-agent-learning-workspace`、`AI-Engineering-KnowledgeBase`、`ai-pet-demo` 当前均为 `PUBLIC`，不再发送阅读或 clone 邀请。
+- 进入 Unit 1 前必须实际确认三个 repo 页面可打开；学习 repo 还要已 clone 到个人 Obsidian。
+- 公开不等于可以向老师 repo push。Unit 4 默认使用个人 fork、branch 和 Pull Request，不依赖 collaborator 邀请。
+- D003、D004、D005、D007 中关于 Agent 权限审批、private 邀请和强制共享提交的内容不再作为当前课程入口合同。
+- 个人学习产物继续写入个人 Obsidian；课程 repo 默认只读。

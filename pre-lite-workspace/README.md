@@ -1,14 +1,14 @@
 ---
 type: workspace-start
 project: AI Agent Learning Workspace
-stage: after-github-invitation
+stage: public-repo-entry
 updated: 2026-07-10
 audience: learners
 ---
 
 # Agent 101 课程 workspace
 
-你会看到这个页面，说明已经接受 GitHub 邀请，并且可以打开课程 workspace。这里承接前面发出的课前确认清单：现在不再重复注册账号，而是把课程 workspace 正确放进 Obsidian。
+你会看到这个页面，说明已经打开公开课程 workspace。不需要等待 GitHub 邀请；下一步是把课程 workspace 正确放进 Obsidian。
 
 ## 先判断你现在在哪里
 
@@ -17,7 +17,7 @@ audience: learners
 
 ## Codex 会做什么，你确认什么
 
-邀请前准备好的 Obsidian Vault 是你的长期个人知识库，不是课程专用文件夹；新建时推荐位置是 `~/Obsidian/`。Codex 会在你的确认下：确认这个 Vault、建立缺失的课程文件夹、克隆课程 workspace、检查远程地址和关键文件。
+课前准备好的 Obsidian Vault 是你的长期个人知识库，不是课程专用文件夹；新建时推荐位置是 `~/Obsidian/`。Codex 会在你的确认下：确认这个 Vault、建立缺失的课程文件夹、克隆课程 workspace、检查远程地址和关键文件。
 
 你只需要：确认使用哪一个 Vault、核对 Codex 报告的绝对路径，并在 Obsidian 左侧文件列表中看到课程入口。
 
@@ -39,4 +39,4 @@ audience: learners
 
 最后按 [workspace 确认回复模板](templates/preflight-reply-template.md) 回复老师。
 
-回复后停在这里，不要重新回到本页循环安装。老师确认三项结果后，会明确说“开始课堂”，并让你打开 [Unit 0：进入共享学习 Workspace](../course-workspace/units/00-workspace-entry/STUDENT.md)。没有收到这一步指令时，不自行进入后续 Unit。
+workspace 路径确认后，可以在课前继续完成 [Unit 0：课前准备与验证](../course-workspace/units/00-workspace-entry/STUDENT.md)。Unit 0 会让 Codex 安装并验证 `teach`、`aihot`，检查报告只写入个人 Obsidian。不要自行进入 Unit 1 或后续 Unit。

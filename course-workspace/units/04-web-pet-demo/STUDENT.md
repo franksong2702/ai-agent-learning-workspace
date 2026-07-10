@@ -21,12 +21,13 @@
 - 学习 Workspace 位于个人 Obsidian 知识库的 `Projects/AI Agent Learning Workspace/`。
 - 代码 repo 位于 `~/Projects/ai-pet-demo/`。
 - Node.js 和 npm 可用。
+- 已按 [课程 Skill 地图](../../../SKILLS.md) 准备 `diagnosing-bugs`、`playwright-cli`，并验证 `playwright-cli --help` 可用。
 - 老师已准备 DeepSeek API key；key 不写入聊天、Markdown、截图或 GitHub。
-- 两个人都能打开同一个 GitHub repo，并知道各自准备修改哪一部分。
+- 两个人都能打开公开 GitHub repo、登录自己的 GitHub 账号，并知道各自准备修改哪一部分。
 
-如果老师还没有提供可访问的 GitHub 地址，或两个人中有一人打不开 repo，停下来记录为“代码 repo 未发布或权限阻塞”。不能用老师本机的本地目录代替两个人的 GitHub 访问证据。
+如果有人打不开公开 repo，停下来记录具体网址和网络错误。不能用老师本机的本地目录代替真实 GitHub 访问证据，也不需要等待 repo 邀请。
 
-如果代码 repo 还没有下载，把老师提供的 GitHub 地址交给 Codex，让它 clone 到 `~/Projects/ai-pet-demo/`。下载完成后再继续。
+如果代码 repo 还没有下载，先在 GitHub 网页把公开 `franksong2702/ai-pet-demo` fork 到自己的账号，再让 Codex 把自己的 fork clone 到 `~/Projects/ai-pet-demo/`，并把老师 repo 设为只读 `upstream`。下载完成后再继续。
 
 这里的 `Node.js` 是运行本地服务的环境，`npm` 用来安装和执行项目命令，`mock` 是不调用付费模型的模拟回复，`branch` 是两个人各自修改代码的分支。页面里的 provider / model 分别表示当前连接方式和具体模型。
 
@@ -43,6 +44,10 @@
 1. 切换至少两套皮肤。
 2. 给宠物发送一句话，确认 mock 回复能出现。
 3. 点击“让 Codex 改这个演示”，看懂人和 Codex 的分工。
+
+页面报错或行为不符合预期时，让 Codex 使用 `diagnosing-bugs` 先复现和定位，不把猜测直接当原因。完成修改后使用 `playwright-cli` 检查真实页面、关键交互和桌面/移动视口；这两个 Skill 是开发过程中的反馈工具，不是独立教学单元。
+
+切换宠物后，已经出现的历史消息保留创建时的署名，新回复使用当前宠物的署名。旧消息名字没有一起变化，是为了保留当时的说话者，不代表页面没有切换成功。
 
 ## 选择一个小改动
 
@@ -64,9 +69,9 @@
 
 这只是示例，不是固定分工。两个人都要知道最终目标，并在合并结果前一起检查页面。
 
-涉及 branch、commit 或 push 时，先让 Codex 检查 `git status` 并解释影响；得到老师当场确认后再执行。
+涉及 branch、commit 或 push 时，先让 Codex 检查 `git status`、`origin` 和 `upstream` 并解释影响；得到本人和老师当场确认后，只推送到自己的 fork。
 
-两个人先各自完成小分支和 Pull Request，再由老师指定合并顺序。第二个合并前必须更新到第一个合并后的主分支并重新检查；出现同文件冲突时停止，由两个人一起决定保留什么，不让 Codex自行覆盖。
+两个人分别在自己的 fork 完成小 branch，并向老师的公开 repo 提交 Pull Request。老师指定合并顺序；第二个合并前必须从 `upstream/main` 更新并重新检查。出现同文件冲突时停止，由两个人一起决定保留什么，不让 Codex 自行覆盖。
 
 ## 接通真实 DeepSeek 回复
 
@@ -97,16 +102,15 @@
   真正的网页代码、测试和本地配置
 
 <个人 Obsidian 知识库>/Learn/Agent 101/Unit 4/
+  COLLABORATION-PLAN.md
   VALIDATION-REPORT.md
   个人学习记录和反思
 
 <个人 Obsidian 知识库>/Projects/AI Agent Learning Workspace/
-  课程入口、协作计划和明确要求共享的验证摘要
+  只读课程入口和模板
 ```
 
-每个人都从 [验证摘要模板](templates/VALIDATION-REPORT.md) 复制一份到自己的 `Learn/Agent 101/Unit 4/VALIDATION-REPORT.md`。老师明确要求共享时，再只提交不含隐私和 key 的短摘要；个人完整报告不复制到共享区。
-
-两个人确认分工后，由老师的 Codex 根据 [协作计划模板](templates/COLLABORATION-PLAN.md) 写入 `course-workspace/artifacts/unit-04-collaboration.md`。其他 Codex 没有公共写入权限时，只在自己的输出目录提交提案，由老师汇总。
+每个人都从 [协作计划模板](templates/COLLABORATION-PLAN.md) 和 [验证摘要模板](templates/VALIDATION-REPORT.md) 生成个人 `COLLABORATION-PLAN.md`、`VALIDATION-REPORT.md`。两个人当面确认分工即可，不需要把这两份文件写回课程 repo。
 
 API key 只在代码 repo 的 `.env.local`，不进入以上任何 Markdown 文件。
 
@@ -115,9 +119,10 @@ API key 只在代码 repo 的 `.env.local`，不进入以上任何 Markdown 文�
 - 网页宠物可以在本机打开，mock 路径仍可用于排障。
 - 页面上能看到一个由两个人共同确认的小改动。
 - 两个人的修改范围没有互相覆盖，并留下协作记录。
-- 真实 GitHub 协作已有 branch、commit SHA、Pull Request 和另一人的 review 证据；若只做本地练习，必须明确写“GitHub 协作未完成”。
+- 真实 GitHub 协作已有个人 fork、branch、commit SHA、Pull Request 和 review 证据；若只做本地练习，必须明确写“GitHub 协作未完成”。
 - `npm run check` 通过。
 - 页面完成一次 DeepSeek 真实文本往返，状态和模型可见。
 - 真实模型回复气泡显示 DeepSeek 来源；mock 回复显示“模拟回复”，两者不会混淆。
 - 每个人的个人知识库中都有 `Learn/Agent 101/Unit 4/VALIDATION-REPORT.md`，记录输入、页面结果、检查命令和人工判断，且不含密钥。
+- 课程 repo 没有因本单元产生个人作业、协作状态或验证摘要。
 - 能说出这个宠物的一条能力边界，以及界面怎样避免让人过度相信它。

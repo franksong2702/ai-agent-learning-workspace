@@ -4,43 +4,42 @@ Last updated: 2026-07-10
 
 ## 当前阶段
 
-课程 repo 与独立网页宠物 repo 已私有发布，进入真实接入前准备。
+三个课程 repo 均已公开，课前路径不再包含 GitHub 邀请。当前重点是完成 Unit 0 准备，并在线下课程开始时验证真实结果。
 
-## 课堂入口
+## 三个公开 Repo
 
-- 当前课堂进度：尚未开始。
-- 老师明确说“开始课堂”后的第一个入口：`units/00-workspace-entry/STUDENT.md`。
-- Unit 0 没有老师确认记录时，不进入 Unit 1。
+| Repo | 当前用途 | 可见性 |
+| --- | --- | --- |
+| [AI Agent Learning Workspace](https://github.com/franksong2702/ai-agent-learning-workspace) | 课程地图与 Codex 提示词 | PUBLIC |
+| [AI Engineering Knowledge Base](https://github.com/franksong2702/AI-Engineering-KnowledgeBase) | 课程引用的 AI 工程知识来源 | PUBLIC |
+| [AI Pet Demo](https://github.com/franksong2702/ai-pet-demo) | Unit 4 网页开发脚手架 | PUBLIC |
 
-## 当前目标
+公开状态已通过 GitHub API 核对。公开只保证阅读和 clone，不提供向老师 repo 直接 push 的权限；Unit 4 默认使用个人 fork 和 Pull Request。
 
-1. Unit 0-5、独立 `ai-pet-demo` 和零基础视角审查已完成。
-2. 两个 repo 已私有发布，并从临时干净目录完成 clone、结构、测试和浏览器验收。
-3. 下一步发送邀请并验证真实账号访问、两个本地安装位置和三个 Codex 加入。
-4. 课前验证真实 DeepSeek，课堂中单独记录协作与学习结果。
+## 当前入口
+
+1. 课前确认 Codex、GitHub、Obsidian 和三个公开 repo。
+2. 把学习 repo clone 到个人 Obsidian 的 `Projects/AI Agent Learning Workspace/`。
+3. 课前完成 Unit 0：三个 repo 检查、`teach` / `aihot` 安装、新 task 验证。
+4. 线下课程先验证 Unit 0，再进入 Unit 1。
 
 ## 已确认事实
 
-- 邀请前只发送一份课前确认清单；GitHub、Obsidian 和陌生概念的 Codex 解释提示词都在该清单附录中。
-- 新建个人 Obsidian 知识库默认使用 `~/Obsidian/`；已有长期知识库不要求迁移。
-- 本 repo 的推荐位置是 `~/Obsidian/Projects/AI Agent Learning Workspace/`。
-- `Learn/Agent 101/` 放个人课程笔记；本 repo 放任务、提示词和共享协作状态。
-- 网页宠物代码使用独立 `~/Projects/ai-pet-demo/`；private repo 是 `https://github.com/franksong2702/ai-pet-demo`。
-- 学习 repo 是 `https://github.com/franksong2702/ai-agent-learning-workspace`；当前课程更新已进入 `main`。
-- 临时干净目录 `/tmp/agent101-publish-verify-20260710-DXgrvS/` 已完成双仓 clone；学习仓结构与链接检查、代码仓 7 项测试和桌面/移动浏览器验收均通过。
-- 本次没有发送邀请、公开 repo 或处理真实 API key。
-- 本地验证报告保存在老师的项目治理区，不在本学习 repo 中，也不替代真实课堂证据。
+- 新建个人 Obsidian Vault 默认使用 `~/Obsidian/`；已有长期 Vault 不迁移。
+- 课程 repo 默认只读；个人学习产物写入个人 Obsidian `Learn/`。
+- AI Pet Demo 到 Unit 4 时先 fork，再 clone 个人 fork 到 `~/Projects/ai-pet-demo/`。
+- 三个 repo 不需要 GitHub 邀请或访问令牌即可阅读和 clone。
+- 当前课程与 Skill 修订仍在本地，未 commit、未 push。
 
 ## 当前仍未验证
 
-- 两个不同 GitHub 账号接受邀请、clone 和 pull。
-- 三个 Codex 依次提交加入申请并获得实际写入权限。
+- 不同电脑上的 workspace clone 和 Unit 0 个人报告。
+- 新 Codex task 中 `teach`、`aihot` 的真实可见性。
+- Unit 4 的个人 fork、branch、Pull Request 和 review。
 - DeepSeek 真实 API 往返。
-- 真实线下课堂与真实学习结果。
+- 真实线下课堂与学习结果。
 
-## 不能声称
+## 当前公开风险
 
-- 不能声称课前确认清单已经发送。
-- 不能声称三个 Codex 已加入或 activated。
-- 不能声称真实 API 已接通。
-- 不能声称真实学习者试讲已经完成。
+- `ai-pet-demo/docs/ASSET-PROVENANCE.md` 记录三套 spritesheet 尚未确认再分发许可；仓库已经公开，这项不再是未来发布前事项，需要单独处理。
+- 公开 repo 中仍不得提交 API key、Token、Cookie、密码或私人 Obsidian 内容。

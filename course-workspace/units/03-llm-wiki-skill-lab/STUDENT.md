@@ -10,7 +10,7 @@ Skill 不是收藏夹，也不是安装越多越好。它是一套你愿意让 C
 
 - Unit 2 的 `COMPILATION-RULES.md`、`COMPILATION.md`、`LEARNING-CARD.md` 和 `PITCH.md` 可以打开。
 - 已准备第二篇带来源的 Raw 文章；没有自选材料时可从 Unit 2 的 [备用文章池](../02-aihot-obsidian-pitch/materials/ARTICLE-CANDIDATES.md) 另选一篇。
-- Codex 可以使用 `writing-great-skills`。
+- 已按 [课程 Skill 地图](../../../SKILLS.md) 准备 `writing-great-skills`，并确认 Codex 自带的 `skill-creator`、`skill-installer` 可用。
 - 已确认个人 Obsidian 知识库的绝对路径。
 
 缺少 Unit 2 产物时，先回去补齐或说明缺口，不要凭空写 Skill。
@@ -31,19 +31,20 @@ Skill 不是收藏夹，也不是安装越多越好。它是一套你愿意让 C
 <个人 Obsidian 知识库>/Learn/Wiki/<第二主题>/
 ```
 
-共享 Workspace 只在老师明确要求时记录状态、草稿路径和人工决定，不复制 Skill 正文或个人学习卡。
+课程 repo 只提供模板和说明，本单元保持只读；Skill 草稿、试用报告和个人学习卡都留在个人 Obsidian。
 
 ## 课堂动作
 
-1. 回看 Unit 2，列出每次都会重复的步骤和只属于那篇文章的内容。
-2. 让 Codex 读取 `writing-great-skills`，重点检查触发方式、信息层级、单一事实源、可检查完成标准和常见失效方式。
-3. 打开 [mini Skill 模板](templates/MINI-SKILL.md)，先写一份默认手动调用的 `SKILL.md`。
-4. 把下面的“手动试用提示词”发给 Codex，用第二篇 Raw 试用草稿，观察它是否按相同过程写入新的 `Learn/Wiki/<第二主题>/`。
-5. 打开 [试用报告模板](templates/TRIAL-REPORT.md)，记录实际输入、输出、偏差和修改。
-6. 修改 `SKILL.md`，删掉重复或不会改变行为的句子，收紧容易误触发或越权的动作。
-7. 由你确认：暂不安装，还是另起一个安装动作。没有明确确认时，默认不安装。
+1. 先按 [课程 Skill 地图](../../../SKILLS.md) 的 Unit 3 提示词完成安装检查；不重复安装 Codex 自带 Skill。
+2. 回看 Unit 2，列出每次都会重复的步骤和只属于那篇文章的内容。
+3. 让 Codex 读取 `writing-great-skills`，重点检查触发方式、信息层级、单一事实源、可检查完成标准和常见失效方式。
+4. 打开 [mini Skill 模板](templates/MINI-SKILL.md)，让 `skill-creator` 帮助建立或检查草稿结构，但内容仍来自 Unit 2 的真实流程。
+5. 把下面的“手动试用提示词”发给 Codex，用第二篇 Raw 试用草稿，观察它是否按相同过程写入新的 `Learn/Wiki/<第二主题>/`。
+6. 打开 [试用报告模板](templates/TRIAL-REPORT.md)，记录实际输入、输出、偏差和修改。
+7. 修改 `SKILL.md`，删掉重复或不会改变行为的句子，收紧容易误触发或越权的动作。
+8. 由你确认：暂不安装，还是让 `skill-installer` 另起一个安装动作。没有明确确认时，默认不安装。
 
-手动试用不是把 Skill 安装到系统里，而是明确告诉 Codex：本次只按这份草稿执行。
+手动试用不是把 Skill 安装到系统里，而是明确告诉 Codex：本次只按这份草稿执行。未安装时，你每次都要提供草稿绝对路径；正式安装只是让它以后更容易被找到和调用，不会增加权限。`disable-model-invocation: true` 表示这份 Skill 只能由人主动调用，Codex 和其他 Skill 不会自动触发它。
 
 ```text
 请不要安装这份 Skill。请读取以下个人草稿并只在本次任务中按它执行：
@@ -53,6 +54,9 @@ Skill 不是收藏夹，也不是安装越多越好。它是一套你愿意让 C
 原文链接：[填写链接]
 第二主题：[填写主题]
 个人 Obsidian 知识库：[填写绝对路径]
+这次最想弄明白的问题：[用自己的话写一个问题]
+Pitch 面向谁：[例如课堂中的其他人]
+Pitch 重点：[最希望讲清的一点]
 
 开始前先复述唯一写入目录、人工确认门和禁止动作，等我确认后再处理。
 ```
@@ -69,7 +73,7 @@ Skill 不是收藏夹，也不是安装越多越好。它是一套你愿意让 C
 
 ## 两份扩展附录
 
-- [8 个课程 Skill 与发现入口](materials/SKILL-CATALOG.md)：知道每个 Skill 在什么时候提供帮助，不把 Skill 当收藏夹。
+- [8 个课程 Skill 与发现入口](materials/SKILL-CATALOG.md)：查看课程级总表、固定来源和常用发现入口，不把 Skill 当收藏夹。
 - [外部 Skill 的导入与保存](materials/IMPORT-AND-SAVE.md)：练习发现、暂存、审计、试用、安装和保留出处。
 
 附录是扩展知识。课堂先完成 mini Skill 和第二篇 Raw 试用，再根据时间选择讲解；不要求一次安装全部 Skill。

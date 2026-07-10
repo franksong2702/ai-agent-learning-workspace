@@ -1,14 +1,14 @@
 ---
 type: codex-prompt
 project: AI Agent Learning Workspace
-stage: after-github-invitation
+stage: public-repo-setup
 updated: 2026-07-10
 audience: codex
 ---
 
 # 给 Codex 的 workspace 继续准备提示词
 
-我已经接受 GitHub 邀请。请先判断课程 workspace 是否已经正确放进我的个人 Obsidian 知识库，再决定下一步；不要重复做账号注册或邀请前检查。
+我已经能打开公开课程 repo。请先判断课程 workspace 是否已经正确放进我的个人 Obsidian 知识库，再决定下一步；不要等待邀请，也不要重复做账号注册检查。
 
 请先读取：
 

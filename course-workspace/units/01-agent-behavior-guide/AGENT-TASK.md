@@ -1,64 +1,53 @@
-# Unit 1：Codex 执行任务
+# Codex Task：Unit 1 行为说明与自然语言委托
 
 ## 目标
 
-读取一份轻量行为说明，接受人的自然语言委托，并只在对应的共享提交目录创建一份 `first-agent-note.md`。文件必须由人实际打开检查后，才能报告完成。
+读取课程提供的轻量行为说明，接受人的自然语言委托，只在个人 Obsidian 中创建一份短记录，并由人实际打开和修订。
 
 ## 前置
 
-- Unit 0 已确认当前 repo 的真实绝对路径。
-- 当前 Codex 自己的加入申请已有老师填写的确认记录，批准模式为 `write-enabled`，写入范围包含对应的 `outputs/person-N/`。
-- 人已明确当前 Codex 代表第一个人或第二个人。
-- `course-workspace/ROLES.md` 中的身份与 `course-workspace/outputs/person-1/` 或 `course-workspace/outputs/person-2/` 已对应清楚。
-- 人已同意开始这个小任务。
+- Unit 0 的 `SETUP-REPORT.md` 可以打开。
+- `course-workspace/units/00-workspace-entry/REPO-ACCESS.md` 中三个公开 repo 已实际验证。
+- 人已确认个人 Obsidian Vault 和课程 repo 的绝对路径。
+- 人同意开始这个小任务。
 
-任一前置不成立时，先进入“降级路径”。
+任一前置不成立时，报告准确缺口，不写文件。
 
-## 允许动作
+## 先读取
 
-1. 读取 `course-workspace/ROLES.md`、`course-workspace/units/01-agent-behavior-guide/STUDENT.md` 和 `course-workspace/units/01-agent-behavior-guide/templates/AGENT-BEHAVIOR-GUIDE.md`。
-2. 用一句话确认目标文件和完成标准；自然语言要求确实不清楚时，只问一个最小必要问题。
-3. 读取 `course-workspace/units/01-agent-behavior-guide/templates/FIRST-AGENT-NOTE.md`，根据人刚才表达的目标生成四个短小节。
-4. 只创建当前身份对应的 `first-agent-note.md`。
-5. 用文件存在性检查验证写入结果，并报告验证命令、返回结果和证据路径。
-6. 请人实际打开文件；如果人指出内容不符合原意，只修改这一份文件。
+1. `course-workspace/units/01-agent-behavior-guide/STUDENT.md`
+2. `course-workspace/units/01-agent-behavior-guide/templates/AGENT-BEHAVIOR-GUIDE.md`
+3. `course-workspace/units/01-agent-behavior-guide/templates/FIRST-AGENT-NOTE.md`
 
-## 禁止动作
+## 执行
 
-- 不修改 repo 根目录或其他目录中的 `AGENTS.md`。
-- 不修改行为说明模板或课堂记录模板。
-- 不写入另一人的 `outputs/`，不修改 `CURRENT.md`、`TASKS.md`、`DECISIONS.md` 或 `ROLES.md`。
-- 不扩展到后续单元的知识库编译、知识卡或自动化内容。
-- 不额外生成摘要、教程、项目计划或其他共享文件。
-- 不 commit、不 push、不删除文件、不发送外部消息。
-- 不写入密码、验证码、API Key、Cookie、Token、付款信息或私人原因。
-- 目标文件已经存在时不覆盖，先让人决定是检查现有文件还是修改它。
-
-## 输出
-
-二选一，只能创建与当前身份对应的文件：
-
-- `course-workspace/outputs/person-1/first-agent-note.md`
-- `course-workspace/outputs/person-2/first-agent-note.md`
-
-内容使用 `course-workspace/units/01-agent-behavior-guide/templates/FIRST-AGENT-NOTE.md` 的四个小节，保持简短，并使用人刚才表达的意思。
-
-完成报告使用以下格式：
+1. 先确认唯一目标文件：
 
 ```text
-验证命令：test -f '<实际文件绝对路径>'
-返回结果：<exit code 和关键结果>
-证据路径：<实际文件绝对路径>
+<个人 Obsidian 知识库>/Learn/Agent 101/Unit 1/FIRST-AGENT-NOTE.md
 ```
 
-## 人工检查
+2. 用一句话复述人的自然语言目标；确实不清楚时只问一个最小问题。
+3. 只创建缺失的个人 `Unit 1/` 目录，根据模板写四个短小节。
+4. 重新打开文件，检查内容和路径。
+5. 请人实际打开；人指出问题后，只修改指定部分，再次读取确认。
 
-请对应的人在 Obsidian 或文件管理器中打开实际文件，核对路径、四个小节和内容原意。只有人明确确认文件存在、可读、位置正确，才能报告本单元完成。
+## 边界
 
-## 降级路径
+- 不修改课程 repo、行为说明模板或课堂记录模板。
+- 不在课程 repo 创建额外状态或 GitHub 作业文件。
+- 不 commit、不 push、不 fork、不创建 Pull Request、不发送外部消息。
+- 不扩展到知识库编译、网页开发或后续 Unit。
+- 不写入密码、验证码、API key、Cookie、Token、付款信息或私人原因。
+- 目标文件已经存在时不覆盖，先让人决定检查还是修改。
 
-- 身份或输出目录不明确：请人确认是第一个人还是第二个人，得到答复前不写文件。
-- 行为说明或课堂记录模板缺失：报告缺失的准确路径，不在其他位置自造替代文件。
-- 无法写入目标目录：在对话中给出拟写内容和准确错误，不声称文件已创建。
-- 目标文件已经存在：不覆盖；请人先打开检查，再决定是否允许修改。
-- 人暂时无法打开文件：保留为“等待人工检查”，不能报告完成。
+## 验证
+
+```text
+验证命令：test -f '<个人 Obsidian 知识库>/Learn/Agent 101/Unit 1/FIRST-AGENT-NOTE.md'
+返回结果：<exit code 和关键结果>
+证据路径：<实际绝对路径>
+人工检查：已确认 / 等待检查 / 需要修改
+```
+
+只有文件存在、路径正确，并且人打开检查过，才能报告本单元完成。

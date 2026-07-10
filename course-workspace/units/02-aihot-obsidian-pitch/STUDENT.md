@@ -12,6 +12,7 @@
 
 - 已经能打开的个人 Obsidian 知识库。新建时默认可放在 `~/Obsidian/`，已有长期知识库不迁移。
 - 能读写本地 Markdown 文件的 Codex。
+- Unit 0 已安装并验证 `aihot`；概念需要进一步讲解时可以使用 `teach`。安装与用途见 [课程 Skill 地图](../../../SKILLS.md)。
 - 一篇带原始链接的文章；没有自选材料时，从 [备用文章池](materials/ARTICLE-CANDIDATES.md) 选择。
 - Obsidian Web Clipper 已安装，并按 [Web Clipper 准备页](materials/WEB-CLIPPER-SETUP.md) 完成一次测试抓取。
 - 你愿意继续追问的主题名称。
@@ -26,22 +27,22 @@
   课程笔记、反思和后续 Skill 练习
 
 <个人 Obsidian 知识库>/Projects/AI Agent Learning Workspace/
-  课程任务、模板和共享协作状态
+  只读课程任务和模板
 ```
 
-学习卡只保存在第一个位置。共享 Workspace 不保存学习卡副本。
+学习卡只保存在第一个位置。课程 repo 不保存学习卡副本。
 
 ## 课堂动作
 
 1. 打开 [Web Clipper 准备页](materials/WEB-CLIPPER-SETUP.md)，确认测试抓取文件的标题、来源、frontmatter 和保存路径正确。
-2. 选定文章，确认原始链接和主题名称；从 AI Hot 发现材料时继续追到原作者页面。没有自选材料时打开 [备用文章池](materials/ARTICLE-CANDIDATES.md)。
+2. 使用 `aihot` 或 AI Hot 网页找到候选，选定文章并确认原始链接和主题名称；继续追到原作者页面。没有自选材料时打开 [备用文章池](materials/ARTICLE-CANDIDATES.md)。
 3. 用 Web Clipper 把文章保存到 `<主题>/raw/`；如果使用已有 Raw，只读原文件并记录它的路径。
 4. 打开 [编译规则模板](templates/COMPILATION-RULES.md)，让 Codex 生成一份个人编译规则草稿。
 5. 先由你确认编译规则，再让 Codex 写出 `COMPILATION.md`，其中包含摘要、关键概念、关键实体、来源和不确定点。
-6. 打开 [学习卡模板](templates/LEARNING-CARD.md)。Codex 必须先问你的理解、兴趣、疑问和修改意见，再完成学习卡。
+6. 打开 [学习卡模板](templates/LEARNING-CARD.md)。Codex 必须先问你的理解、兴趣、疑问和修改意见，再完成学习卡。“还没弄懂”写你对内容的疑问；“修改意见”写编译文件中表达不准、来源不足或需要补充的地方。
 7. 回看原文链接或 Raw 文件，核对学习卡中的至少一条事实，并写下你要求修改或补充的地方。
 8. 打开 [Pitch 模板](templates/PITCH.md)，准备并讲出 60-90 秒版本。
-9. 只有老师明确要求共享时，才在你获授权的共享输出目录记录任务状态、个人产物路径和人工检查结果；不要复制学习卡正文。
+9. 重新打开个人目录中的四个产物，确认课程 repo 没有被修改。
 
 ## 个人目录应能看到
 

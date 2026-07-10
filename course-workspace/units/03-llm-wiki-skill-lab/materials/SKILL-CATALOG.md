@@ -1,45 +1,27 @@
 # 8 个课程 Skill 与发现入口
 
-这里的“推荐”表示适合本课程中的具体动作，不代表全网排名，也不表示必须一次全部安装。
+课程级 Skill 名单、Unit 对照、固定来源、安装提示词和验证方法统一维护在 repo 根目录的 [课程 Skill 地图](../../../../SKILLS.md)。不要在本附录复制另一套安装说明。
 
-## 课程中的 8 个 Skill
+Unit 3 重点理解三件事：
 
-| Skill | 什么时候用 | 先体验什么 |
-| --- | --- | --- |
-| `teach` | 一个概念听不懂时 | 让 Codex 根据你的理解程度换一种讲法，并让你复述 |
-| `aihot` | 从 AI Hot 找资讯和原始来源时 | 搜索主题、打开原作者页面、选择值得继续读的材料 |
-| `grill-me` | 自由想法还模糊时 | 一次问一个问题，把想法压成可检查的工作说明 |
-| `writing-great-skills` | 把重复流程写成 Skill 时 | 检查触发条件、信息层级、边界和完成标准 |
-| `skill-installer` | 已经确认要安装外部 Skill 时 | 查看来源、选择单个 Skill、安装后报告路径 |
-| `skill-creator` | 需要新建或重构自己的 Skill 时 | 建立规范结构并检查 `SKILL.md` |
-| `diagnosing-bugs` | 网页宠物报错或结果不符合预期时 | 先收集错误和复现步骤，再判断原因，不盲目改代码 |
-| `playwright` | 网页修改完成后 | 在真实浏览器里检查交互、桌面和移动视口，并保存证据 |
-
-## 怎样分批使用
-
-```text
-进入课程：teach + aihot
-知识闭环：aihot + teach
-写 Skill：writing-great-skills + skill-creator
-安装 Skill：skill-installer
-网页开发：diagnosing-bugs + playwright
-自由项目：grill-me
-```
-
-同一个 Skill 可以在多个 Unit 重复使用。重点是它是否改变了工作方式，不是图标或数量。
+1. 前面已经使用过 `teach`、`aihot`，所以现在讨论的是实际体验，不是抽象定义。
+2. 本单元使用 `writing-great-skills`、Codex 自带的 `skill-creator` 和 `skill-installer`，把 Unit 2 的真实重复流程沉淀下来。
+3. 外部 Skill 先看来源和完整文件，再试用和安装；安装数量不是目标。
 
 ## 平时从哪里发现
 
-1. **Codex 当前可用列表**：直接让 Codex 列出当前已安装 Skill 的名称、用途和本地来源，不要只看名字猜功能。
-2. **官方渠道**：优先查看 Codex 或其他工具维护者公开的 Skill 文档、安装方式和更新说明。
-3. **老师提供的课程集合**：这些 Skill 已经和当前 Unit 的用途对齐，但使用前仍要读说明。
-4. **GitHub 开源目录**：可以从 <https://github.com/mattpocock/skills> 这类公开目录发现候选，再进入单个 `SKILL.md` 阅读完整内容。
-5. **AI Hot 与 X**：把推荐文章当作发现线索，继续追到原作者、原始 repo 和具体版本，不把转述直接当安装依据。
-6. **自己的重复工作**：当一个流程真实重复多次，自己的记录往往是最有价值的 Skill 来源。
+1. **Codex 当前可用列表**：让 Codex 列出已安装 Skill 的名称、用途和本地来源，不从名字猜功能。
+2. **官方渠道**：优先查看 Codex 或工具维护者公开的 Skill 文档、安装方式和更新说明。
+3. **课程 Skill 地图**：课程使用的 8 个能力已有固定来源和 Unit 对照。
+4. **GitHub 开源目录**：例如 [Matt Pocock Skills](https://github.com/mattpocock/skills) 和 [OpenAI Skills](https://github.com/openai/skills)。进入具体目录阅读完整 `SKILL.md`，不要只看 README 推荐语。
+5. **AI Hot 与 X**：把推荐当作发现线索，继续追到原作者、原始 repo 和具体版本。
+6. **自己的重复工作**：真实重复多次的流程，往往比“热门榜单”更适合写成自己的 Skill。
 
 ## 选择前问四个问题
 
 1. 它解决的是我真实遇到的问题，还是只是看起来厉害？
-2. 我能读到完整的 `SKILL.md`、脚本和来源吗？
+2. 我能读到完整的 `SKILL.md`、脚本、依赖和来源吗？
 3. 它会访问什么数据、运行什么命令、产生什么外部影响？
 4. 我能用一个小任务判断它是否真的改善了结果吗？
+
+具体的审查、暂存和安装流程继续看 [外部 Skill 的导入与保存](IMPORT-AND-SAVE.md)。

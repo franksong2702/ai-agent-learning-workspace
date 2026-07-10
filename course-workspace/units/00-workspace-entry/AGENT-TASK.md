@@ -1,64 +1,93 @@
-# Unit 0：Codex 执行任务
+# Codex Task：Unit 0 课前准备与验证
 
 ## 目标
 
-基于实际访问和本地文件证据，确认课程 Workspace 路径，并让老师的 Codex、第一个人的 Codex、第二个人的 Codex 依次完成各自的加入步骤。不得把“能读取 repo”或“已创建申请”报告成“已经加入”。
+基于真实文件和网络结果，检查课程 repo、个人 Obsidian Vault 以及两个入门 Skill。只把个人检查报告写入个人 Obsidian；课程 repo 保持只读。
+
+## 先读取
+
+按顺序读取：
+
+1. repo 根目录的 `SKILLS.md`
+2. 本目录的 `STUDENT.md`
+3. 本目录的 `REPO-ACCESS.md`
+4. 本目录的 `PREPARE-WITH-CODEX.md`
+
+Unit 0 只使用上面三份当前材料，不读取旧状态页或历史流程页。
 
 ## 前置
 
-- 人已说明当前 Codex 代表老师、第一个人还是第二个人。
-- 代表第一个人或第二个人时，人已确认 GitHub 邀请确实接受且 private repo 可以打开。
-- 个人 Obsidian 知识库的实际路径已由人确认；新建知识库时默认使用 `~/Obsidian/`。
-- 当前目录是课程 repo 的真实本地副本，而不是临时下载目录或聊天中的假定路径。
+- 人能在网页中打开三个公开课程 repo；不需要 GitHub 邀请。
+- 人已经确认一个长期使用的个人 Obsidian Vault 绝对路径。
+- 课程 repo 已克隆到该 Vault 的 `Projects/AI Agent Learning Workspace/`。
 
-任一前置不成立时，进入“降级路径”，不要继续写文件。
+缺少任一前置时，报告准确缺口并停止。不要替人登录账号、猜 Vault，或创建第二份 repo。
 
-## 允许动作
+## 可以执行
 
-1. 用只读命令确认 repo 根目录、当前 remote 和关键文件是否存在。
-2. 依次读取根 `AGENT-START-HERE.md`、`course-workspace/AGENT-START-HERE.md`、`course-workspace/JOIN.md`、`course-workspace/ROLES.md`、`course-workspace/CURRENT.md` 和 `course-workspace/TASKS.md`。
-3. 报告实际 repo 绝对路径，并请人确认它位于个人知识库的 `Projects/AI Agent Learning Workspace/`。
-4. 根据 `course-workspace/JOIN.md` 和 `course-workspace/inbox/joins/TEMPLATE.md`，只创建当前 Codex 自己的加入申请。
-5. 指出当前身份对应的 `outputs/person-N/`，并请人实际打开检查。
-6. 创建申请后停止，等待老师确认；下一台 Codex 只在上一份申请已被人检查后开始。
+1. 用只读命令检查 repo 根目录、`git remote -v` 和关键文件。
+2. 使用 `git ls-remote` 或等价只读方式检查 `REPO-ACCESS.md` 中三个公开 repo；不需要访问令牌。
+3. 检查 `teach`、`aihot` 是否已安装以及各自 `SKILL.md` 是否存在。
+4. 同名目录不存在时，按 `PREPARE-WITH-CODEX.md` 的固定来源安装缺失项。
+5. 安装后提醒人新开 Codex task；不要声称当前 task 已经重新加载新 Skill。
+6. 在新 task 中读取两个 Skill，查询一次 AI Hot，并写个人 `SETUP-REPORT.md`。
+7. 只创建缺失的个人报告目录，不改动其他个人文件。
 
-## 禁止动作
+## 不可以执行
 
-- 不执行 GitHub 邀请，不声称邀请已经发送或接受。
-- 不代替其他 Codex 创建加入申请或占位文件。
-- 不修改 `CURRENT.md`、`TASKS.md`、`DECISIONS.md`、`ROLES.md` 或另一人的输出。
-- 不 commit、不 push、不删除文件、不发送外部消息。
-- 不写入密码、验证码、API Key、Cookie、Token、付款信息或私人原因。
-- 不把本地文件存在、repo 可读或申请已创建当成远端同步、权限确认或三 Codex 加入完成的证据。
+- 不修改课程 repo 中的任何课程内容或状态文件。
+- 不在课程 repo 中创建状态、身份或作业文件。
+- 不 commit、不 push、不发送外部消息。
+- 不覆盖已有同名 Skill；先报告现有路径和来源。
+- 不把密码、验证码、Cookie、Token、API key 或付款信息写入文件或对话。
+- 不在课程 repo 中运行 `teach`；它的持续学习工作区必须位于个人 `Learn/Agent 101/`。
+- 不把文件存在说成 Skill 已在当前 task 中加载，也不把 API 失败写成查询成功。
 
-## 输出
+## 报告位置
 
-只在对应 Codex 真实执行时创建其中一个文件：
-
-- 老师的 Codex：`course-workspace/inbox/joins/teacher-agent.md`
-- 第一个人的 Codex：`course-workspace/inbox/joins/person-1-agent.md`
-- 第二个人的 Codex：`course-workspace/inbox/joins/person-2-agent.md`
-
-不要提前创建另外两份文件。完成后在对话中报告：
+唯一输出是：
 
 ```text
-实际 repo 路径：<绝对路径>
-当前代表：<老师 / 第一个人 / 第二个人>
-已读取：<实际打开的关键文件>
-自己的共享提交目录：<实际目录>
-加入进度：<尚未申请 / 已提交申请，等待老师确认 / 已由老师确认>
+<个人 Obsidian 知识库>/Learn/Agent 101/Unit 0/SETUP-REPORT.md
 ```
 
-## 人工检查
+报告至少包含：
 
-老师逐份打开真实存在的加入申请，核对身份、读取结果和申请权限。对应的人还要在 Obsidian 中打开 `CURRENT.md`、`TASKS.md`、`ROLES.md` 和自己的共享提交目录。
+```markdown
+# Unit 0 准备报告
 
-只有三份申请分别由对应 Codex 创建、每份“老师确认”字段均由老师填入确认人、时间、批准模式、写入范围和读取证据，而且三边都能读取同一组当前文件时，才能报告本单元完成。
+## 路径
+- 个人 Obsidian 知识库：
+- 课程 repo：
+- GitHub remote：
 
-## 降级路径
+## Skill
+| Skill | 状态 | 本地路径 | 来源检查 |
+| --- | --- | --- | --- |
+| teach | 已存在 / 本次安装 / 需要协助 | | |
+| aihot | 已存在 / 本次安装 / 需要协助 | | |
 
-- 邀请未接受或 private repo 无法打开：报告准确阻塞点，停止；不创建申请。
-- repo 未安装到个人知识库：回到 `pre-lite-workspace/prompts/workspace-setup-prompt.md`，由人先确认知识库绝对路径。
-- 只有本地文件、暂时不能同步：允许做只读定位并报告“仅本地确认”，不能报告加入完成。
-- 当前身份或输出目录不明确：请人选择老师、第一个人或第二个人，得到答复前不写文件。
-- 某一台 Codex 不可用：保留该项未完成，其他 Codex 不代写。
+## 三个公开 Repo
+- AI Agent Learning Workspace：已验证 / 需要协助
+- AI Engineering Knowledge Base：已验证 / 需要协助
+- AI Pet Demo：已验证 / 需要协助
+
+## 新 task 验证
+- teach 可读取：已验证 / 需要协助
+- aihot 可读取：已验证 / 需要协助
+- AI Hot 查询：已验证 / 需要协助
+- 查询中的一个来源链接：
+
+## 需要协助
+-
+```
+
+## 验证规则
+
+- repo 路径必须来自本机，不从聊天内容猜测。
+- remote 必须由 `git remote -v` 验证。
+- Skill 状态必须由实际目录和 `SKILL.md` 验证。
+- 新 task 可见性必须在安装后的新 task 中验证。
+- AI Hot 结果必须来自真实查询并带来源链接。
+- 三个 repo 的访问状态必须来自真实网页或远程读取，不从课程文字推断。
+- 写完报告后重新打开并读取一次，确认路径和状态没有互相矛盾。

@@ -1,7 +1,7 @@
 ---
 type: workspace-reply-template
 project: AI Agent Learning Workspace
-stage: after-github-invitation
+stage: public-repo-setup
 updated: 2026-07-10
 audience: learners
 ---
@@ -9,7 +9,7 @@ audience: learners
 # workspace 确认回复模板
 
 ```text
-GitHub 邀请：已接受 / 需要协助
+三个公开 repo：都能打开 / 需要协助
 
 个人 Obsidian 知识库：
 课程 workspace：

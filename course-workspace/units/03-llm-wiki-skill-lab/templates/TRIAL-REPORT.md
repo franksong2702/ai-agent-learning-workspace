@@ -1,6 +1,6 @@
 # mini Skill 试用报告
 
-> 使用时让 Codex 把本模板生成到 `<个人 Obsidian 知识库>/Learn/Agent 101/Skills/aihot-to-llm-wiki-card/TRIAL-REPORT.md`。共享 Workspace 只记录老师明确要求共享的状态或路径。
+> 使用时让 Codex 把本模板生成到 `<个人 Obsidian 知识库>/Learn/Agent 101/Skills/aihot-to-llm-wiki-card/TRIAL-REPORT.md`。课程 repo 保持只读。
 
 ## 基本信息
 
@@ -52,7 +52,7 @@
 - [ ] 我核对了至少一条来源。
 - [ ] 我确认人的回答与 Codex 编译结果已分开。
 - [ ] 我确认个人产物只写入个人目录。
-- [ ] 我确认共享 Workspace 没有个人正文副本。
+- [ ] 我确认课程 repo 没有个人正文或状态副本。
 
 ## 安装决定
 

@@ -6,6 +6,7 @@ ok=1
 
 required_files='
 README.md
+SKILLS.md
 AGENTS.md
 AGENT-START-HERE.md
 pre-lite-workspace/README.md
@@ -17,20 +18,18 @@ pre-lite-workspace/prompts/workspace-setup-prompt.md
 pre-lite-workspace/templates/preflight-reply-template.md
 course-workspace/README.md
 course-workspace/AGENT-START-HERE.md
-course-workspace/JOIN.md
 course-workspace/PROJECTS.md
 course-workspace/CURRENT.md
 course-workspace/TASKS.md
 course-workspace/DECISIONS.md
-course-workspace/ROLES.md
 course-workspace/SOURCES.md
 course-workspace/LOG-2026-07.md
-course-workspace/inbox/README.md
-course-workspace/inbox/joins/TEMPLATE.md
 course-workspace/artifacts/README.md
 course-workspace/units/README.md
 course-workspace/units/00-workspace-entry/STUDENT.md
 course-workspace/units/00-workspace-entry/AGENT-TASK.md
+course-workspace/units/00-workspace-entry/PREPARE-WITH-CODEX.md
+course-workspace/units/00-workspace-entry/REPO-ACCESS.md
 course-workspace/units/01-agent-behavior-guide/STUDENT.md
 course-workspace/units/01-agent-behavior-guide/AGENT-TASK.md
 course-workspace/units/01-agent-behavior-guide/templates/AGENT-BEHAVIOR-GUIDE.md
@@ -59,9 +58,6 @@ course-workspace/units/05-fuzzy-idea-to-project-path/AGENT-TASK.md
 course-workspace/units/05-fuzzy-idea-to-project-path/templates/PROJECT-BRIEF.md
 course-workspace/units/05-fuzzy-idea-to-project-path/templates/PROJECT-PATH.md
 course-workspace/units/05-fuzzy-idea-to-project-path/templates/NEXT-TASK.md
-course-workspace/outputs/README.md
-course-workspace/outputs/person-1/README.md
-course-workspace/outputs/person-2/README.md
 '
 
 for rel in $required_files; do
@@ -86,21 +82,6 @@ if [ -d "$repo/ai-pet-demo" ] || [ -d "$repo/node_modules" ]; then
   ok=0
 fi
 
-if ! grep -Fq '第一个人的 Codex' "$repo/course-workspace/ROLES.md"; then
-  echo "ROLES.md missing 第一个人的 Codex"
-  ok=0
-fi
-
-if ! grep -Fq '第二个人的 Codex' "$repo/course-workspace/ROLES.md"; then
-  echo "ROLES.md missing 第二个人的 Codex"
-  ok=0
-fi
-
-if ! grep -Fq '老师的 Codex' "$repo/course-workspace/ROLES.md"; then
-  echo "ROLES.md missing 老师的 Codex"
-  ok=0
-fi
-
 if grep -R -E '绿[[:space:]]*/[[:space:]]*黄[[:space:]]*/[[:space:]]*红|My Obsidian Vault|Claude Code|Hermes|老师 Agent|第一个人 Agent|第二个人 Agent' "$repo" --exclude-dir=.git --exclude=check-workspace.sh >/dev/null 2>&1; then
   echo "stale learner-facing wording found"
   ok=0
@@ -111,8 +92,54 @@ if grep -R -E '学生|参与者|课程组织者|乐乐|宋乐涵' "$repo/course-
   ok=0
 fi
 
+if grep -R -E '共享 Workspace|共享 workspace|共享输出|outputs/person|proposal-only|write-enabled|加入申请' "$repo/course-workspace/units" >/dev/null 2>&1; then
+  echo "retired shared-write workflow found in Unit materials"
+  ok=0
+fi
+
 if ! grep -Fq 'DeepSeek 真实文本往返' "$repo/course-workspace/units/04-web-pet-demo/STUDENT.md"; then
   echo "Unit 4 missing real DeepSeek completion gate"
+  ok=0
+fi
+
+if ! grep -Fq 'Unit 0：只准备两个' "$repo/SKILLS.md"; then
+  echo "SKILLS.md missing Unit 0 two-skill boundary"
+  ok=0
+fi
+
+if ! grep -Fq 'skills/productivity/teach' "$repo/course-workspace/units/00-workspace-entry/PREPARE-WITH-CODEX.md"; then
+  echo "Unit 0 prompt missing fixed teach source"
+  ok=0
+fi
+
+if ! grep -Fq 'https://aihot.virxact.com/aihot-skill/install.sh' "$repo/course-workspace/units/00-workspace-entry/PREPARE-WITH-CODEX.md"; then
+  echo "Unit 0 prompt missing official AI Hot installer source"
+  ok=0
+fi
+
+if ! grep -Fq 'AI-Engineering-KnowledgeBase' "$repo/course-workspace/units/00-workspace-entry/REPO-ACCESS.md"; then
+  echo "Unit 0 repo access check missing AI Engineering Knowledge Base"
+  ok=0
+fi
+
+if ! grep -Fq 'fork 到自己的 GitHub 账号' "$repo/course-workspace/units/00-workspace-entry/REPO-ACCESS.md"; then
+  echo "Unit 0 repo access check missing public fork workflow"
+  ok=0
+fi
+
+if ! grep -Fq '<个人 Obsidian 知识库>/Learn/Agent 101/Unit 0/SETUP-REPORT.md' "$repo/course-workspace/units/00-workspace-entry/AGENT-TASK.md"; then
+  echo "Unit 0 prompt missing personal report path"
+  ok=0
+fi
+
+if grep -E 'JOIN\.md|ROLES\.md|proposal-only|write-enabled|加入申请|权限审批' \
+  "$repo/README.md" \
+  "$repo/AGENT-START-HERE.md" \
+  "$repo/course-workspace/README.md" \
+  "$repo/course-workspace/AGENT-START-HERE.md" \
+  "$repo/course-workspace/units/00-workspace-entry/STUDENT.md" \
+  "$repo/course-workspace/units/00-workspace-entry/AGENT-TASK.md" >/dev/null 2>&1; then
+  echo "current entry or Unit 0 still references the retired management flow"
   ok=0
 fi
 
@@ -121,8 +148,8 @@ if ! grep -Fq '~/Obsidian/' "$repo/README.md"; then
   ok=0
 fi
 
-if ! grep -Fq 'stage: after-github-invitation' "$repo/pre-lite-workspace/materials/day-minus-1-preflight-checklist.md"; then
-  echo "workspace continuation checklist missing after-invitation stage"
+if ! grep -Fq 'stage: public-repo-setup' "$repo/pre-lite-workspace/materials/day-minus-1-preflight-checklist.md"; then
+  echo "workspace continuation checklist missing public-repo stage"
   ok=0
 fi
 
@@ -131,8 +158,8 @@ if ! grep -Fq '<个人 Obsidian 知识库>/Projects/AI Agent Learning Workspace/
   ok=0
 fi
 
-if ! grep -Fq '邀请前的 Obsidian 准备没有完成' "$repo/pre-lite-workspace/prompts/workspace-setup-prompt.md"; then
-  echo "workspace setup prompt must stop when the pre-invite Vault gate is missing"
+if ! grep -Fq '课前的 Obsidian 准备没有完成' "$repo/pre-lite-workspace/prompts/workspace-setup-prompt.md"; then
+  echo "workspace setup prompt must stop when the pre-class Vault gate is missing"
   ok=0
 fi
 

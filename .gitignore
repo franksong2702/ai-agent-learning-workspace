@@ -1,0 +1,10 @@
+.DS_Store
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.agent-context/
+.env
+.env.*
+*.key
+*.pem
+*.p12
+node_modules/

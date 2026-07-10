@@ -133,6 +133,7 @@ if ! grep -Fq '<个人 Obsidian 知识库>/Learn/Agent 101/Unit 0/SETUP-REPORT.m
 fi
 
 if grep -E 'JOIN\.md|ROLES\.md|proposal-only|write-enabled|加入申请|权限审批' \
+  "$repo/AGENTS.md" \
   "$repo/README.md" \
   "$repo/AGENT-START-HERE.md" \
   "$repo/course-workspace/README.md" \
@@ -140,6 +141,17 @@ if grep -E 'JOIN\.md|ROLES\.md|proposal-only|write-enabled|加入申请|权限�
   "$repo/course-workspace/units/00-workspace-entry/STUDENT.md" \
   "$repo/course-workspace/units/00-workspace-entry/AGENT-TASK.md" >/dev/null 2>&1; then
   echo "current entry or Unit 0 still references the retired management flow"
+  ok=0
+fi
+
+if ! grep -Fq '课程 repo 默认只读' "$repo/AGENTS.md"; then
+  echo "AGENTS.md missing current read-only course boundary"
+  ok=0
+fi
+
+if ! grep -Fq '当前 Unit 的 `STUDENT.md`' "$repo/AGENTS.md" || \
+   ! grep -Fq '同目录的 `AGENT-TASK.md`' "$repo/AGENTS.md"; then
+  echo "AGENTS.md missing current human/Codex two-layer route"
   ok=0
 fi
 

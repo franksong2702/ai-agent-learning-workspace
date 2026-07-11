@@ -28,7 +28,7 @@ Skill 在这门课里有两个作用：先作为 Codex 的现成能力使用，�
 | Unit 2 | 可用 `aihot` 找文章来源；不使用预制编译 Skill | 确认 Web Clipper Raw、检查 Agent 设计和 Wiki 文件 | 阅读 Karpathy 方法，自行设计并执行最小 Wiki 编译 |
 | Unit 3 | 使用 `writing-great-skills`、`skill-creator`；扩展了解 `skill-installer` | Unit 2 哪些步骤值得重复、何时停止、试编结果是否可接受、是否显式启用 | 从真实运行创建草稿，先试编 1 篇，再用同一 Skill 编译剩余 3–4 篇 Raw |
 | Unit 4 | 使用 `diagnosing-bugs`、`playwright-cli` | 现象是否真实、页面是否符合预期、修复是否可接受 | 复现问题、修改代码、运行测试和浏览器检查 |
-| Unit 5 | 使用 `grill-me` | 逐个回答问题，纠正 Codex 的理解，确认最小范围 | 追问并整理工作说明，不替人选择目标 |
+| Unit 5 | 使用 `grill-me` + `grilling` | 逐个回答高影响问题，纠正 Codex 的理解，确认第一版范围与验收标准 | 把讨论整理成需求文档；确认后再交给新 task 规划和实施 |
 
 课程 repo 只提供说明、来源和提示词。Skill 安装在自己的 Codex 环境中；Skill 产生的个人学习材料写入个人 Obsidian，不写回课程 repo。
 
@@ -46,7 +46,7 @@ Skill 不一定会自己启动。课程中使用下面的自然语言即可；�
 | `compile-raw-to-wiki` | “请明确使用 $compile-raw-to-wiki，把这几篇 Raw 逐篇编译进我已有的同一套 Wiki。” |
 | `diagnosing-bugs` | “请使用 diagnosing-bugs，先复现和定位这个错误，不要直接猜原因。” |
 | `playwright-cli` | “请使用 playwright-cli 在真实浏览器中检查这个页面，并报告证据。” |
-| `grill-me` | “请使用 grill-me，一次问我一个问题，把这个模糊想法整理清楚。” |
+| `grill-me` | “请使用 grill-me，一次问我一个问题，把这个模糊想法整理成可实施的需求文档；第一版已经足够清楚时主动停止追问。” |
 
 人要明确提出目标，并检查结果；Skill 只是让 Codex 使用一套更稳定的工作方式，不会替人决定什么值得做。
 
@@ -105,7 +105,7 @@ aihot
 
 安装完成后新开 Codex task，再进入 Unit 4。
 
-### Unit 5：自由项目开始前准备
+### Unit 5：需求澄清开始前准备
 
 `grill-me` 的正文会调用同一仓库中的 `grilling`，因此两者必须一起安装。把下面这段发给 Codex：
 
@@ -118,7 +118,7 @@ aihot
 
 如果任一同名目录已经存在，不要覆盖；先报告冲突。安装后检查两个目录中都存在 SKILL.md。不要修改课程 repo，不要 commit 或 push。
 
-最后报告两个实际本地路径，并说明需要新开一个 Codex task 后再使用。
+最后报告两个实际本地路径，并说明需要新开一个 Codex task 后再使用。`grill-me` 是入口，`grilling` 提供单问单答的实际追问规则；课堂最低产物是 `PROJECT-REQUIREMENTS.md`，不是必须完成代码。
 ```
 
 ## 怎样判断“安装好了”

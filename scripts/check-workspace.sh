@@ -51,6 +51,9 @@ course-workspace/units/04-web-pet-demo/templates/HUMAN-AI-DESIGN.md
 course-workspace/units/04-web-pet-demo/templates/VALIDATION-REPORT.md
 course-workspace/units/05-fuzzy-idea-to-project-path/STUDENT.md
 course-workspace/units/05-fuzzy-idea-to-project-path/AGENT-TASK.md
+course-workspace/units/05-fuzzy-idea-to-project-path/SLIDES.md
+course-workspace/units/05-fuzzy-idea-to-project-path/SLIDES.html
+course-workspace/units/05-fuzzy-idea-to-project-path/templates/PROJECT-REQUIREMENTS.md
 course-workspace/units/05-fuzzy-idea-to-project-path/templates/PROJECT-BRIEF.md
 course-workspace/units/05-fuzzy-idea-to-project-path/templates/PROJECT-PATH.md
 course-workspace/units/05-fuzzy-idea-to-project-path/templates/NEXT-TASK.md
@@ -258,6 +261,39 @@ if grep -E '第一阶段|第二阶段|第三阶段|第四阶段|一键复制|请
   echo "Unit 3 Slides must remain an after-practice concept and discovery deck"
   ok=0
 fi
+
+unit5_student="$repo/course-workspace/units/05-fuzzy-idea-to-project-path/STUDENT.md"
+unit5_agent="$repo/course-workspace/units/05-fuzzy-idea-to-project-path/AGENT-TASK.md"
+unit5_requirements="$repo/course-workspace/units/05-fuzzy-idea-to-project-path/templates/PROJECT-REQUIREMENTS.md"
+unit5_slides="$repo/course-workspace/units/05-fuzzy-idea-to-project-path/SLIDES.md"
+
+if ! grep -Fq '课堂最低产物' "$unit5_student" || \
+   ! grep -Fq 'PROJECT-REQUIREMENTS.md' "$unit5_student" || \
+   ! grep -Fq '如果课堂时间不足，只完成步骤 1-4' "$unit5_student"; then
+  echo "Unit 5 missing the requirements-first classroom boundary"
+  ok=0
+fi
+
+if ! grep -Fq '一次只问一个问题' "$unit5_agent" || \
+   ! grep -Fq '停止追问的条件' "$unit5_agent" || \
+   ! grep -Fq '优先建议新开 Codex task' "$unit5_agent"; then
+  echo "Unit 5 missing Grill Me sequencing or implementation handoff"
+  ok=0
+fi
+
+for section in '## 原始想法' '## 第一版可见结果' '## 第一版必须具备' '## 明确不做' '## 验收标准' '## 待验证问题' '## 实施前交接'; do
+  if ! grep -Fq "$section" "$unit5_requirements"; then
+    echo "Unit 5 requirements template missing section: $section"
+    ok=0
+  fi
+done
+
+for concept in '模糊不是问题' '不要让 Codex 立刻开做' '追问不是越多越好' '一份人能读懂的需求文档' '需求确认后，才进入实施' '课堂最低完成线'; do
+  if ! grep -Fq "$concept" "$unit5_slides"; then
+    echo "Unit 5 Slides missing core idea: $concept"
+    ok=0
+  fi
+done
 
 if ! grep -Fq 'Unit 0：只准备两个' "$repo/SKILLS.md"; then
   echo "SKILLS.md missing Unit 0 two-skill boundary"

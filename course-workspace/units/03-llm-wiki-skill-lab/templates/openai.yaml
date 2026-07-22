@@ -1,6 +1,6 @@
 interface:
   display_name: "Raw 编译到 Wiki"
-  short_description: "把 1–5 篇 Raw 编译进已有个人 Obsidian Wiki"
-  default_prompt: "Use $compile-raw-to-wiki to compile the selected Raw files into my existing Obsidian Wiki."
+  short_description: "先确认每篇拆文，再把选定 Raw 编译进已有个人 Obsidian Wiki"
+  default_prompt: "Use $compile-raw-to-wiki to decompose the selected Raw files, wait for my decisions, and compile approved content into my existing Obsidian Wiki."
 policy:
   allow_implicit_invocation: false

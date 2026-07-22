@@ -13,13 +13,13 @@ AGENT-TASK.md
 Codex 自行读取，约束路径、动作、输出和验证
 ```
 
-不同 Unit 可以采用不同顺序：Unit 0 由 Slides 带着完成工作台检查；Unit 1 先打开 `STUDENT.md`，自己阅读、向 Codex 提问并接受老师追问，最后才看 Slides 核对和收束；Unit 3 先完成 Skill 起草、单篇试编和 3–4 篇批量编译，最后才看 Slides 扩展 Skill 来源；Unit 5 先用 Slides 明确“需求先于实施”，再打开 `STUDENT.md` 进行 Grill Me 追问。需要 Agent 动手时，仍从同 Unit 的 `STUDENT.md` 复制提示词，Codex 再读取 `AGENT-TASK.md`。
+不同 Unit 可以采用不同顺序：Unit 0 由 Slides 带着完成工作台检查；Unit 1 先打开 `STUDENT.md`，自己阅读、向 Codex 提问并接受老师追问，最后才看 Slides 核对和收束；Unit 2 先用 Slides 和拆文模板共同理解兴趣文章，再让 Codex 编译 Wiki；Unit 3 先从 Unit 2 的拆文卡、Wiki 变化、人工修正和 Log 建立证据卡，再完成 Skill 起草、单篇拆文试编和 3–4 篇逐篇确认，最后才看 Slides 扩展 Skill 来源；Unit 5 先用 Slides 明确“需求先于实施”，再打开 `STUDENT.md` 进行 Grill Me 追问。需要 Agent 动手时，仍从同 Unit 的 `STUDENT.md` 复制提示词，Codex 再读取 `AGENT-TASK.md`。
 
 ## 建议顺序
 
 1. [Unit 0：准备并确认工作台](00-workspace-entry/SLIDES.md)
 2. [Unit 1：读懂 Karpathy 的 LLM Wiki](01-agent-behavior-guide/SLIDES.md)
-3. [Unit 2：让 Agent 设计并完成第一次 Wiki 编译](02-aihot-obsidian-pitch/SLIDES.md)
+3. [Unit 2：从兴趣文章开始第一次 Wiki 编译](02-aihot-obsidian-pitch/SLIDES.md)
 4. [Unit 3：把一次成功做法变成自己的 Skill](03-llm-wiki-skill-lab/SLIDES.md)
 5. [Unit 4：一起改造一个 AI 网页宠物](04-web-pet-demo/SLIDES.md)
 6. [Unit 5：把模糊想法变成可实施的需求](05-fuzzy-idea-to-project-path/SLIDES.md)

@@ -5,8 +5,10 @@
 你不需要一次读完所有文件。老师明确说“开始课堂”后，按这个顺序：
 
 1. [Unit 0：课前准备与验证](units/00-workspace-entry/STUDENT.md)
-2. [课程 Skill 地图](../SKILLS.md)
-3. [Unit 0-5 课程入口](units/README.md)
+2. [教师运行手册](TEACHER-RUNBOOK.md)
+3. [课前准备矩阵](PREFLIGHT-MATRIX.md)
+4. [课程 Skill 地图](../SKILLS.md)
+5. [Unit 0-5 课程入口](units/README.md)
 
 Codex 第一次进入时，先打开 [课堂 Codex 入口](AGENT-START-HERE.md)。Unit 0 的 repo、Vault 和两个 Skill 在课前自行准备；线下课程先验证这些结果，再安装并检查 Claudian，最后进入 Unit 1。
 

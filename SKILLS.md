@@ -25,8 +25,8 @@ Skill 在这门课里有两个作用：先作为 Codex 的现成能力使用，�
 | --- | --- | --- | --- |
 | Unit 0 | 安装并验证 `teach`、`aihot` | 确认来源、允许安装、核对结果 | 检查现有安装、安装缺失项、报告路径 |
 | Unit 1 | 正式使用 `teach` 阅读指定原文 | 哪个概念没有真正听懂，怎样继续追问，能否用自己的话复述 | 根据原文互动解释、换例子并检查理解，不替人宣布学会 |
-| Unit 2 | 可用 `aihot` 找文章来源；不使用预制编译 Skill | 确认 Web Clipper Raw、检查 Agent 设计和 Wiki 文件 | 阅读 Karpathy 方法，自行设计并执行最小 Wiki 编译 |
-| Unit 3 | 使用 `writing-great-skills`、`skill-creator`；扩展了解 `skill-installer` | Unit 2 哪些步骤值得重复、何时停止、试编结果是否可接受、是否显式启用 | 从真实运行创建草稿，先试编 1 篇，再用同一 Skill 编译剩余 3–4 篇 Raw |
+| Unit 2 | 可用 `aihot` 找兴趣文章来源；不使用预制编译 Skill | 选择文章、确认 Web Clipper Raw、共同拆文、检查 Wiki 文件 | 创建拆文卡，按确认过的判断执行最小 Wiki 编译 |
+| Unit 3 | 使用 `writing-great-skills`、`skill-creator`；扩展了解 `skill-installer` | 从 Unit 2 证据区分稳定方法和一次性内容；确认每篇拆文、试编结果与是否显式启用 | 建立 Skill 证据卡和自包含草稿；先试编 1 篇，再逐篇拆文并处理剩余 3–4 篇 Raw |
 | Unit 4 | 使用 `diagnosing-bugs`、`playwright-cli` | 现象是否真实、页面是否符合预期、修复是否可接受 | 复现问题、修改代码、运行测试和浏览器检查 |
 | Unit 5 | 使用 `grill-me` + `grilling` | 逐个回答高影响问题，纠正 Codex 的理解，确认第一版范围与验收标准 | 把讨论整理成需求文档；确认后再交给新 task 规划和实施 |
 
@@ -66,6 +66,8 @@ aihot
 `teach` 会把当前目录当成持续学习空间。课程中使用它时，工作目录必须位于个人 Obsidian 的 `Learn/Agent 101/`，不要让它在课程 repo 中创建学习文件。
 
 ### Unit 3：写 Skill 前准备
+
+Unit 3 同时使用两个 Skill，但职责不同：`writing-great-skills` 检查方法是否可预测、完成标准是否可验证以及内容是否需要删减；当前 Codex 自带的 `skill-creator` 决定目录、frontmatter、`agents/openai.yaml` 和校验方式。两者发生结构或调用机制冲突时，以当前 Codex 规则为准，并把冲突写进报告。
 
 把下面这段发给 Codex：
 
